@@ -1,0 +1,33 @@
+<h1>Listing grades</h1>
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Student</th>
+    <th>Category</th>
+    <th>Name</th>
+    <th>Integer</th>
+    <th>Datetime</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @grades.each do |grade| %>
+  <tr>
+    <td><%= grade.task %></td>
+    <td><%= grade.student %></td>
+    <td><%= grade.category %></td>
+    <td><%= grade.name %></td>
+    <td><%= grade.integer %></td>
+    <td><%= grade.datetime %></td>
+    <td><%= link_to 'Show', grade %></td>
+    <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
+    <td><%= link_to 'Destroy', grade, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Grade', new_grade_path %>

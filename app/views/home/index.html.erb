@@ -1,12 +1,5 @@
 <h1>MyGrades (SneakyRedondos)</h1>
-#example_3.example_content
-  #top_navigation= render_navigation(:level => 1)
-  .clear_float
-  .content_wrapper
-    #sub_navigation= render_navigation(:level => 2)
-    .content
-      .breadcrumbs
-        = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ', :prefix => 'breadcrumbs: ')
-    .clear_float
-
+<%= link_to "Courses", courses_path %>
+<%= link_to "Grades", grades_path %>
+<%= link_to "Categories", categories_path %>
 <%= link_to "Tasks", tasks_path %>

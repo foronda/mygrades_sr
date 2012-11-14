@@ -11,6 +11,59 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121114105652) do
+ActiveRecord::Schema.define(:version => 20121114113814) do
+
+  create_table "categories", :force => true do |t|
+    t.integer  "task_id"
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "categories", ["task_id"], :name => "index_categories_on_task_id"
+
+  create_table "courses", :force => true do |t|
+    t.integer  "task_id"
+    t.string   "name"
+    t.string   "semester"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "grades", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "student_id"
+    t.integer  "category_id"
+    t.string   "name"
+    t.integer  "total"
+    t.datetime "duedate"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "grades", ["category_id"], :name => "index_grades_on_category_id"
+  add_index "grades", ["student_id"], :name => "index_grades_on_student_id"
+  add_index "grades", ["task_id"], :name => "index_grades_on_task_id"
+
+  create_table "students", :force => true do |t|
+    t.integer  "course_id"
+    t.string   "username"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "students", ["course_id"], :name => "index_students_on_course_id"
+
+  create_table "tasks", :force => true do |t|
+    t.integer  "course_id"
+    t.integer  "category_id"
+    t.string   "name"
+    t.integer  "total"
+    t.datetime "due_date"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "tasks", ["course_id"], :name => "index_tasks_on_course_id"
 
 end
