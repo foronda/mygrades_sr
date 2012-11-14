@@ -1,6 +1,6 @@
 class CreateTasks < ActiveRecord::Migration
   def change
-		drop_table :tasks
+		#drop_table :tasks
     create_table :tasks do |t|
       t.references :course
       t.integer :category_id
