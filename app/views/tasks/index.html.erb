@@ -14,8 +14,8 @@
 
 <% @tasks.each do |task| %>
   <tr>
-    <td><%= task.course %></td>
-    <td><%= task.category_id %></td>
+    <td><%= Course.find(task.course_id).name%></td>
+    <td><%= Category.find(task.category_id).name %></td>
     <td><%= task.name %></td>
     <td><%= task.total %></td>
     <td><%= task.due_date %></td>

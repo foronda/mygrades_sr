@@ -1,7 +1,7 @@
 MygradesSr::Application.routes.draw do
-  resources :tasks
-
   resources :categories
+
+  resources :tasks
 
   resources :students
 

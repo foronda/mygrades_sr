@@ -2,8 +2,7 @@
 
 <table>
   <tr>
-    <th>Task</th>
-    <th>Type</th>
+    <th>Name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +10,7 @@
 
 <% @categories.each do |category| %>
   <tr>
-    <td><%= category.task %></td>
-    <td><%= category.type %></td>
+    <td><%= category.name %></td>
     <td><%= link_to 'Show', category %></td>
     <td><%= link_to 'Edit', edit_category_path(category) %></td>
     <td><%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %></td>

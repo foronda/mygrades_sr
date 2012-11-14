@@ -11,16 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121114113814) do
+ActiveRecord::Schema.define(:version => 20121114125329) do
 
   create_table "categories", :force => true do |t|
-    t.integer  "task_id"
-    t.string   "type"
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  add_index "categories", ["task_id"], :name => "index_categories_on_task_id"
 
   create_table "courses", :force => true do |t|
     t.integer  "task_id"

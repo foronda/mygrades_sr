@@ -12,24 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :course %><br />
-    <%= f.text_field :course %>
+	  <%= f.label :Course %>
+		<%= f.collection_select :course_id, Course.all, :id, :name, :prompt => "Select a Course" %>
   </div>
   <div class="field">
-    <%= f.label :category_id %><br />
-    <%= f.number_field :category_id %>
+		<%= f.label :Category %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, :prompt => "Select a Course" %><br />
   </div>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br />
   </div>
   <div class="field">
-    <%= f.label :total %><br />
-    <%= f.number_field :total %>
+    <%= f.label :total %>
+    <%= f.number_field :total %><br />
   </div>
   <div class="field">
-    <%= f.label :due_date %><br />
-    <%= f.datetime_select :due_date %>
+    <%= f.label :due_date %>
+    <%= f.datetime_select :due_date %><br />
   </div>
   <div class="actions">
     <%= f.submit %>
