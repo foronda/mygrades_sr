@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<h1>MyGrades</h1>
   <title>MyGrades</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+	<ul>
+	<li> <%= link_to "Courses", courses_path %> </li>
+	<li> <%= link_to "Grades", grades_path %> </li>
+	<li> <%= link_to "Categories", categories_path %> </li>
+	<li> <%= link_to "Students", students_path %> </li>
+	<li> <%= link_to "Tasks", tasks_path %> </li>
+	<ul>
 </head>
+
 <body>
 
 <%= yield %>

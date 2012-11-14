@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :course %><br />
-    <%= f.text_field :course %>
+	  <%= f.label :Course %>
+		<%= f.collection_select :course_id, Course.all, :id, :name, :prompt => "Select a Course" %>
   </div>
   <div class="field">
     <%= f.label :username %><br />

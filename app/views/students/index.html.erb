@@ -11,7 +11,7 @@
 
 <% @students.each do |student| %>
   <tr>
-    <td><%= student.course %></td>
+    <td><%= Course.find(student.course).name %></td>
     <td><%= student.username %></td>
     <td><%= link_to 'Show', student %></td>
     <td><%= link_to 'Edit', edit_student_path(student) %></td>
