@@ -11,37 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121114084836) do
-
-  create_table "courses", :force => true do |t|
-    t.string   "name"
-    t.string   "semester"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "grades", :force => true do |t|
-    t.string   "letter"
-    t.integer  "task_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "grades", ["task_id"], :name => "index_grades_on_task_id"
-
-  create_table "students", :force => true do |t|
-    t.string   "username"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "tasks", :force => true do |t|
-    t.string   "name"
-    t.integer  "earned"
-    t.integer  "total"
-    t.datetime "due"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20121114105652) do
 
 end

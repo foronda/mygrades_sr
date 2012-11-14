@@ -5,6 +5,9 @@ gem 'rails', '3.2.1'
 # TabsOnRails Gem Dependency
 gem 'tabs_on_rails'
 
+# Simple Navigation Plugin
+gem 'simple-navigation'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

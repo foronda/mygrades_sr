@@ -1,0 +1,11 @@
+class DropTasks < ActiveRecord::Migration
+  def up
+		drop_table :tasks
+		drop_table :courses
+		drop_table :students
+  end
+
+  def down
+		raise ActiveRecord::IrreversibleMigration
+  end
+end
