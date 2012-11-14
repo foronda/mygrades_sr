@@ -11,7 +11,11 @@
     </div>
   <% end %>
 
-   <div class="field">
+  <div class="field">
+		<%= f.label :Course %>
+		<%= f.collection_select :course_id, Course.all, :id, :name, :prompt => "Select a Course" %>
+  </div>
+  <div class="field">
 	  <%= f.label :Task %>
 		<%= f.collection_select :task_id, Task.all, :id, :name, :prompt => "Select a Task" %>
   </div>
@@ -20,12 +24,8 @@
 		<%= f.collection_select :student_id, Student.all, :id, :username, :prompt => "Select a Student" %>
   </div>
   <div class="field">
-	  <%= f.label :Category %>
-		<%= f.collection_select :category_id, Category.all, :id, :name, :prompt => "Select a Category" %>
-  </div>
-  <div class="field">
-    <%= f.label :total %><br />
-    <%= f.number_field :total %>
+    <%= f.label :earned %><br />
+    <%= f.number_field :earned %>
   </div>
   <div class="actions">
     <%= f.submit %>

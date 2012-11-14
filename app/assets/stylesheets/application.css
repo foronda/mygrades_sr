@@ -60,3 +60,10 @@ form label {
   font-weight: bold;
   color: maroon;
 }
+
+ul
+{
+list-style-type:none;
+margin:0;
+padding:0;
+} 

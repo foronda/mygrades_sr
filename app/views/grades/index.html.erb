@@ -1,13 +1,12 @@
-<h1>Listing grades</h1>
-
 <table>
+	<th>Grades</th>
   <tr>
+    <th>Course</th>
     <th>Task</th>
     <th>Student</th>
-    <th>Category</th>
-    <th>Name</th>
-    <th>Integer</th>
-    <th>Datetime</th>
+    <th>Earned</th>
+		<th>Total</th>
+		<th>Grade</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,12 +14,12 @@
 
 <% @grades.each do |grade| %>
   <tr>
-    <td><%= grade.task %></td>
-    <td><%= grade.student %></td>
-    <td><%= grade.category %></td>
-    <td><%= grade.name %></td>
-    <td><%= grade.integer %></td>
-    <td><%= grade.datetime %></td>
+    <td><%= Course.find(grade.course_id).name %></td>
+    <td><%= Task.find(grade.task_id).name %></td>
+    <td><%= Student.find(grade.student_id).username %></td>
+    <td><%= grade.earned %></td>
+		<td><%= Task.find(grade.task_id).total %></td>
+		<td><%= (grade.earned.to_f/(Task.find(grade.task_id).total.to_f))*100 %>%</td>
     <td><%= link_to 'Show', grade %></td>
     <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
     <td><%= link_to 'Destroy', grade, confirm: 'Are you sure?', method: :delete %></td>

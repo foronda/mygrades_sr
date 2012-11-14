@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121114125329) do
+ActiveRecord::Schema.define(:version => 20121114190359) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -28,17 +28,15 @@ ActiveRecord::Schema.define(:version => 20121114125329) do
   end
 
   create_table "grades", :force => true do |t|
+    t.integer  "course_id"
     t.integer  "task_id"
     t.integer  "student_id"
-    t.integer  "category_id"
-    t.string   "name"
-    t.integer  "total"
-    t.datetime "duedate"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "earned"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "grades", ["category_id"], :name => "index_grades_on_category_id"
+  add_index "grades", ["course_id"], :name => "index_grades_on_course_id"
   add_index "grades", ["student_id"], :name => "index_grades_on_student_id"
   add_index "grades", ["task_id"], :name => "index_grades_on_task_id"
 

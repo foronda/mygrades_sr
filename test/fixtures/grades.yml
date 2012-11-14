@@ -1,17 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  course: 
   task: 
   student: 
-  category: 
-  name: MyString
-  integer: 
-  datetime: 
+  earned: 1
 
 two:
+  course: 
   task: 
   student: 
-  category: 
-  name: MyString
-  integer: 
-  datetime: 
+  earned: 1
