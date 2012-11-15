@@ -4,6 +4,8 @@ MygradesSr::Application.routes.draw do
 
   resources :teams
 
+  resources :categories
+
   resources :grades
 
   resources :categories
