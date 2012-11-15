@@ -6,9 +6,6 @@
     <th>Username</th>
     <th>Team</th>
     <th></th>
-		<th>Homework Total</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -17,9 +14,6 @@
     <td><%= Course.find(student.course).name %></td>
     <td><%= student.username %></td>
     <td><%= Team.find(student.team).name %></td>
-		<td>
-			<%	Grade.find(2).student_id %>
-		</td>
     <td><%= link_to 'Show', student %></td>
     <td><%= link_to 'Edit', edit_student_path(student) %></td>
     <td><%= link_to 'Destroy', student, confirm: 'Are you sure?', method: :delete %></td>
