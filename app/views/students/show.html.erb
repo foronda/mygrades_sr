@@ -10,6 +10,11 @@
   <%= @student.username %>
 </p>
 
+<p>
+  <b>Team:</b>
+  <%= Team.find(@student.team).name %>
+</p>
+
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
