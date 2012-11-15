@@ -1,6 +1,7 @@
 class CreateCategories < ActiveRecord::Migration
   def change
-    create_table :categories do |t|
+    drop_table :categories
+		create_table :categories do |t|
       t.string :name
       t.float :weight
 
