@@ -15,10 +15,14 @@
 	  <%= f.label :Course %>
 		<%= f.collection_select :course_id, Course.all, :id, :name, :prompt => "Select a Course" %>
   </div>
+  
   <div class="field">
 	  <%= f.label :Team %>
-		<%= f.collection_select :team_id, Course.all, :id, :name, :prompt => "Select a Team" %>
+		<%= f.collection_select :team_id, Team.all, :id, :name, :prompt => "Select a Team" %>
   </div>
+  
+  
+  
   <div class="field">
     <%= f.label :username %><br />
     <%= f.text_field :username %>
