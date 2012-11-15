@@ -3,7 +3,6 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @students }

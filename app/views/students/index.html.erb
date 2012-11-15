@@ -4,8 +4,9 @@
   <tr>
     <th>Course</th>
     <th>Username</th>
-		<th>Homework Total</th>
-    <th></th>
+    <th>Homework Total</th>
+		<th>Lab Total </th>
+		<th></th>
     <th></th>
     <th></th>
   </tr>
@@ -14,16 +15,35 @@
   <tr>
     <td><%= Course.find(student.course).name %></td>
     <td><%= student.username %></td>
+		<% 
+			 @home_earned_total = 0
+		   @home_total = 0
+			 @lab_earned_total = 0
+			 @lab_total = 0
+		%>
+		<% Grade.where(:student_id => student.id).each do |grade| %>
+		<%
+			 @task = Task.find_by_id(grade.task_id)
+			 @category = @task.category_id
+			 if(Category.find(@category).name == "Homeworks")
+					@home_total += @task.total
+					@home_earned_total += grade.earned
+			 end 
+		%>
+		<% end %>
 		<td>
-			<%	Grade.find(2).student_id %>
+		<% if @home_total != 0 %>
+			<%= ((@home_earned_total.to_f)/(@home_total.to_f)*100).round  %>%
+			(<%=@home_earned_total %>/<%=@home_total%>)
+		<% end %>
 		</td>
+		<td></td>
     <td><%= link_to 'Show', student %></td>
     <td><%= link_to 'Edit', edit_student_path(student) %></td>
     <td><%= link_to 'Destroy', student, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
-
 <br />
 
 <%= link_to 'New Student', new_student_path %>
