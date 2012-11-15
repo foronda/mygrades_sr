@@ -6,8 +6,8 @@
     <th>Category</th>
     <th>Name</th>
     <th>Total</th>
-    <th></th>
-    <th></th>
+    <th>Due Date</th>
+    <th>Actions</th>
     <th></th>
   </tr>
 
@@ -17,7 +17,7 @@
     <td><%= Category.find(task.category_id).name %></td>
     <td><%= task.name %></td>
     <td><%= task.total %></td>
-    <td><%= task.due_date %></td>
+    <td><%= task.due_date.strftime("%A, %B %d, %Y at %l%p") %></td>
     <td><%= link_to 'Show', task %></td>
     <td><%= link_to 'Edit', edit_task_path(task) %></td>
     <td><%= link_to 'Delete', task, confirm: 'Are you sure?', method: :delete %></td>
