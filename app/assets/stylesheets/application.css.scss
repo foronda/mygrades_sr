@@ -1,7 +1,13 @@
+/*
+$navbarBackground:                #006633 ;
+$navbarBackgroundHighlight:       #000000 ;
+$navbarText:                      #ffffff ;
+$navbarLinkColor:                 #ffffff ;
+$navbarSearchPlaceholderColor:    #006600 ;
+*/
 @import "bootstrap";
 
 /* universal */
-
 html {
   overflow-y: scroll;
 }
@@ -56,12 +62,13 @@ p {
 /* header */
 
 #logo {
+	font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 2.0em;
   color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
+  /*text-transform: uppercase;*/
+  letter-spacing: 0px;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
