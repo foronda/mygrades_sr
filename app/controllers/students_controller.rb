@@ -1,14 +1,26 @@
 class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
-  def index
+	
+	helper_method :homework_weight
+	before_filter :get_homework_earned
+	
+	def get_homework_earned
+		@homework_earned = session[:h_earned]
+	end
+	
+	def homework_weight
+		@h_weight = Category.find_by_id(1).weight
+	end
+  
+	def index
     @students = Student.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @students }
     end
   end
-
+	
   # GET /students/1
   # GET /students/1.json
   def show
