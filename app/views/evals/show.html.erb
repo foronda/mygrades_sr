@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Rating:</b>
+  <%= @eval.rating %>
+</p>
+
+<p>
+  <b>Task:</b>
+  <%= @eval.Task %>
+</p>
+
+
+<%= link_to 'Edit', edit_eval_path(@eval) %> |
+<%= link_to 'Back', evals_path %>
