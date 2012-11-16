@@ -8,6 +8,7 @@ $navbarSearchPlaceholderColor:    #006600 ;
 @import "bootstrap";
 
 /* universal */
+
 html {
   overflow-y: scroll;
 }
@@ -78,7 +79,13 @@ p {
   color: #fff;
   text-decoration: none;
 }
-
+div#header {
+    width: 100%;
+    }
+div#footer {
+    width: 100%;
+    }
+		
 table
 {
 	font-family:'Arial Narrow','Nimbus Sans L',sans-serif;
