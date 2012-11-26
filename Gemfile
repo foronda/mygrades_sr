@@ -15,8 +15,16 @@ gem 'simple-navigation'
 # for Heroku deployment - as described in Ap. A of ELLS book
 group :development, :test do
   gem 'sqlite3'
+<<<<<<< HEAD
 	gem 'rspec-rails'
 	gem 'cucumber'
+=======
+  gem 'rspec-rails'
+end
+
+group :production do
+  gem 'pg'
+>>>>>>> Testing phase started
 end
 
 # Gems used only for assets and not required
@@ -37,6 +45,10 @@ group :production do
 end
 
 gem 'jquery-rails'
+
+group :test do
+	gem 'capybara', '1.1.2'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
