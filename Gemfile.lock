@@ -47,10 +47,15 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+<<<<<<< HEAD
     gherkin (2.11.5)
       json (>= 1.4.6)
     gherkin (2.11.5-x86-mingw32)
       json (>= 1.4.6)
+||||||| merged common ancestors
+=======
+    googlecharts (1.6.8)
+>>>>>>> Added Google charts
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -143,7 +148,12 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 2.1.1.0)
   coffee-rails (~> 3.2.1)
+<<<<<<< HEAD
   cucumber
+||||||| merged common ancestors
+=======
+  googlecharts
+>>>>>>> Added Google charts
   jquery-rails
   pg
 <<<<<<< HEAD
