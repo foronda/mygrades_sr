@@ -2,21 +2,28 @@ module StudentsHelper
 	def calc_homeworks(student_id)
 		@h_total = 0
 		@h_earned = 0
+		
+		data ="<td><div id='homework' class='modal hide fade' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>"
+		data += "<div class='modal-header'><h3 id='homeworkLabel'> Homework Breakdown</h3></div>"
+		data += "<div class='modal-body'><p>"
 		Grade.find_all_by_student_id(student_id).each do |grade|
 			Task.find_all_by_id_and_category_id(grade.task_id, 1).each do |homework|
 					@h_total += homework.total
 					@h_earned += grade.earned
+					data += "#{homework.name} - #{grade.earned}/#{homework.total}</br>"
 			end
 		end
-		session[:h_earned] = @h_earneds
-		
+
 		if(@h_total != 0)
-			raw("<td> #{((@h_earned.to_f/@h_total.to_f)*100).round}% (#{@h_earned}/#{@h_total})</td>" ) 
+				data += "</br>Total #{((@h_earned.to_f/@h_total.to_f)*100).round}% (#{@h_earned}/#{@h_total})"
+			data += "</p></div></div>"
+			data += "Total #{((@h_earned.to_f/@h_total.to_f)*100).round}% (#{@h_earned}/#{@h_total})</td>"								
 		else
-			raw("<td>N/A</td>")
+			data +="</td>"
 		end
+		data.html_safe
 	end
-	
+
 	def calc_labs(student_id)
 		@l_total = 0
 		@l_earned = 0
