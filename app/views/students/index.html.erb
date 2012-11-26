@@ -1,6 +1,6 @@
 <h1>Listing students</h1>
 <div class="accordion" id="accordion2">
-  <div class="accordion-group">
+  <div class="accordion-group">
   <table class="table table-hover">
     <tr class="success">
       <th>Courses</th>
@@ -34,6 +34,6 @@
 
 <h2>Or Upload Student list</h2>
 <%= form_tag({:action => :upload_student}, :multipart => true) do %>
-  <%= file_field_tag 'student_file' %>
-  <%= submit_tag "Upload" %>
+  <%= file_field_tag 'student_file' %>
+  <%= submit_tag "Upload" %>
 <% end %>
