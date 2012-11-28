@@ -21,12 +21,17 @@
 		<td><%= Task.find(grade.task_id).total %></td>
 		<td><%= (grade.earned.to_f/(Task.find(grade.task_id).total.to_f))*100 %>%</td>
     <td><%= link_to 'Show', grade %></td>
-    <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
     <td><%= link_to 'Destroy', grade, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
+
+<h2>Upload Grades for this assignment</h2>
+<%= form_for [@course] do |f| %>
+<%= f.file_field :grade_file %>
+<%= f.submit %>
+<% end %>
 
 <%= link_to 'New Grade', new_grade_path %>

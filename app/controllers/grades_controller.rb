@@ -40,17 +40,8 @@ class GradesController < ApplicationController
   # POST /grades
   # POST /grades.json
   def create
-    @grade = Grade.new(params[:grade])
-
-    respond_to do |format|
-      if @grade.save
-        format.html { redirect_to @grade, notice: 'Grade was successfully created.' }
-        format.json { render json: @grade, status: :created, location: @grade }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @grade.errors, status: :unprocessable_entity }
-      end
-    end
+    @course = Course.find(params[:course_id])
+    #@grade = Grade.new(params[:grade])
   end
 
   # PUT /grades/1

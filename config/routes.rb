@@ -1,4 +1,6 @@
 MygradesSr::Application.routes.draw do
+  resources :tempups
+
   resources :teams
 
   resources :grades

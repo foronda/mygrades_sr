@@ -14,6 +14,8 @@ gem 'simple-navigation'
 # for Heroku deployment - as described in Ap. A of ELLS book
 group :development, :test do
   gem 'sqlite3'
+  gem "rspec-rails"
+  gem "cucumber"
 end
 group :production do
   gem 'pg'
