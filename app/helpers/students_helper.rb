@@ -3,9 +3,9 @@ module StudentsHelper
 		@h_total = 0
 		@h_earned = 0
 		hName = []
-		hPoints = []
-		hEarned = []
-		
+		hGrade = []
+		hLegend = []
+		@test
 		data ="<td><div id='homework' class='modal hide fade' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>"
 		data += "<div class='modal-header'><h3 id='homeworkLabel'> Homework Breakdown</h3></div>"
 		data += "<div class='modal-body'><p>"
@@ -14,26 +14,29 @@ module StudentsHelper
 					@h_total += homework.total
 					@h_earned += grade.earned
 					hName << homework.name
-					hPoints << homework.total
-					hEarned << grade.earned
+					hGrade << ((grade.earned.to_f/homework.total.to_f)*100).round
+					hLegend << "#{homework.name} (#{@h_earned}/#{@h_total})"
+					concat hLegend
+					#hEarned << grade.earned
 					data += "#{homework.name} - #{grade.earned}/#{homework.total}</br>"
 			end
 		end
-		#hEarned << @h_total
-		#hName << "Total"
 						
-		@graph = Gchart.bar(:data => [hEarned, hPoints], 
+		
+		if(@h_total != 0)
+			hGrade << ((@h_earned.to_f/@h_total.to_f)*100).round
+			hName << "Total"
+			@graph = Gchart.bar(:data => hGrade, 
 												:axis_with_labels => ['x', 'y'],
 												:axis_labels => [hName],
-												:legend => ['Earned', 'Total'],
-												:bar_width_and_spacing => '25,40',
-												:bg => {:color => '000000'}, 
+												:legend => hLegend,	
+												:bar_width_and_spacing => '40,30',
+												:bg => {:color => 'FFFFFF', :type => 'solid'}, 
 												:bar_colors => 'ff0000,00ff00',
-												:max_value => 300,
-												:axis_range => [[150], [2,17,5]])
-		if(@h_total != 0)
+												:encoding => 'text')
+												
 			data += "</br>Total #{((@h_earned.to_f/@h_total.to_f)*100).round}% (#{@h_earned}/#{@h_total})"
-			data += "</br><img src=#{@graph}/></br>"
+			data += "</br><img width='450' height='450' src=#{@graph}/></br>"
 			data += "</p></div></div>"
 			data += "Total #{((@h_earned.to_f/@h_total.to_f)*100).round}% (#{@h_earned}/#{@h_total})</td>"
 		else

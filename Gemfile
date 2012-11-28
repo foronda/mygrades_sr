@@ -15,24 +15,37 @@ gem 'simple-navigation'
 # for Heroku deployment - as described in Ap. A of ELLS book
 group :development, :test do
   gem 'sqlite3'
+<<<<<<< HEAD
   gem "rspec-rails"
   gem "cucumber"
 end
 group :production do
   gem 'pg'
+||||||| merged common ancestors
 end
-
+group :production do
+  gem 'pg'
+=======
+	gem 'rspec-rails'
+	gem 'cucumber'
+>>>>>>> Updated GEMFile for RSpec
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails',   '~> 3.2.5'
+  gem 'coffee-rails', '~> 3.2.2'
 	gem 'bootstrap-sass', '~> 2.1.1.0'
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
+  gem 'uglifier', '>= 1.2.3'
+end
 
-  gem 'uglifier', '>= 1.0.3'
+group :test do
+	gem 'capybara', '1.1.2'
+end
+
+group :production do
+  gem 'pg'
 end
 
 gem 'jquery-rails'

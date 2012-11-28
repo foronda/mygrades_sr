@@ -48,12 +48,20 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
 <<<<<<< HEAD
+<<<<<<< HEAD
     gherkin (2.11.5)
       json (>= 1.4.6)
     gherkin (2.11.5-x86-mingw32)
       json (>= 1.4.6)
 ||||||| merged common ancestors
 =======
+||||||| merged common ancestors
+=======
+    gherkin (2.11.5)
+      json (>= 1.4.6)
+    gherkin (2.11.5-x86-mingw32)
+      json (>= 1.4.6)
+>>>>>>> Updated GEMFile for RSpec
     googlecharts (1.6.8)
 >>>>>>> Added Google charts
     hike (1.2.1)
@@ -149,9 +157,14 @@ DEPENDENCIES
   bootstrap-sass (~> 2.1.1.0)
   coffee-rails (~> 3.2.1)
 <<<<<<< HEAD
+<<<<<<< HEAD
   cucumber
 ||||||| merged common ancestors
 =======
+||||||| merged common ancestors
+=======
+  cucumber
+>>>>>>> Updated GEMFile for RSpec
   googlecharts
 >>>>>>> Added Google charts
   jquery-rails
@@ -163,7 +176,12 @@ DEPENDENCIES
   rails (= 3.2.1)
 =======
   rails (= 3.2.9)
+<<<<<<< HEAD
 >>>>>>> Will try bootstrap
+||||||| merged common ancestors
+=======
+  rspec-rails
+>>>>>>> Updated GEMFile for RSpec
   sass-rails (~> 3.2.3)
   simple-navigation
   sqlite3
