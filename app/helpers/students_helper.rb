@@ -5,7 +5,7 @@ module StudentsHelper
 		hName = []
 		hGrade = []
 		hLegend = []
-		@test
+
 		data ="<td><div id='homework' class='modal hide fade' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>"
 		data += "<div class='modal-header'><h3 id='homeworkLabel'> Homework Breakdown</h3></div>"
 		data += "<div class='modal-body'><p>"
@@ -14,31 +14,35 @@ module StudentsHelper
 					@h_total += homework.total
 					@h_earned += grade.earned
 					hName << homework.name
-					hGrade << ((grade.earned.to_f/homework.total.to_f)*100).round
-					hLegend << "#{homework.name} (#{@h_earned}/#{@h_total})"
-					concat hLegend
-					#hEarned << grade.earned
-					data += "#{homework.name} - #{grade.earned}/#{homework.total}</br>"
+					# Calls helper functions
+					hGrade << calc_percentage(grade.earned, homework.total)
+					hLegend << generate_legend(homework, grade)
 			end
 		end
 						
 		
 		if(@h_total != 0)
-			hGrade << ((@h_earned.to_f/@h_total.to_f)*100).round
+		
+			# Generates total field data
+			hGrade << calc_percentage(@h_earned, @h_total)
 			hName << "Total"
-			@graph = Gchart.bar(:data => hGrade, 
+			hLegend << "Homework Total - #{calc_percentage(@h_earned, @h_total)}% (#{@h_earned}/#{@h_total})"
+			
+			# Generate graph if homework exists...
+			@graph = Gchart.bar(:size => '400x200',
+												:bar_colors => '76A4FB',
+												:background => 'EEEEEE',
+												:data => hGrade, 
 												:axis_with_labels => ['x', 'y'],
 												:axis_labels => [hName],
 												:legend => hLegend,	
 												:bar_width_and_spacing => '40,30',
 												:bg => {:color => 'FFFFFF', :type => 'solid'}, 
-												:bar_colors => 'ff0000,00ff00',
 												:encoding => 'text')
-												
-			data += "</br>Total #{((@h_earned.to_f/@h_total.to_f)*100).round}% (#{@h_earned}/#{@h_total})"
-			data += "</br><img width='450' height='450' src=#{@graph}/></br>"
+			# Create an image link
+			data += "</br><img src=#{@graph}/></br>"
 			data += "</p></div></div>"
-			data += "Total #{((@h_earned.to_f/@h_total.to_f)*100).round}% (#{@h_earned}/#{@h_total})</td>"
+			data += "Total #{calc_percentage(@h_earned, @h_total)}% (#{@h_earned}/#{@h_total})</td>"
 		else
 			data +="</td>"
 		end
@@ -93,6 +97,15 @@ module StudentsHelper
 		else
 			raw("<td>N/A</td>")
 		end
+	end
+	
+	# Helper functions
+	def calc_percentage(earned, total)
+		return ((earned.to_f/total.to_f)*100).round
+	end
+	
+	def generate_legend(homework, grade)
+		return "#{homework.name} - #{calc_percentage(grade.earned, homework.total)}% (#{grade.earned}/#{homework.total})"
 	end
 	
 	

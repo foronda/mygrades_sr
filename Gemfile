@@ -16,7 +16,8 @@ gem 'simple-navigation'
 group :development, :test do
   gem 'sqlite3'
 	gem 'rspec-rails'
-	gem 'guard-spec'
+	gem 'guard-rspec'
+	gem 'wdm'
 	gem 'cucumber'
 end
 
