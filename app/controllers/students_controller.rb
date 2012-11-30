@@ -91,4 +91,16 @@ class StudentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+	
+	before_filter :load_hearned
+  after_filter :save_hearned
+
+  private
+    def load_hearned
+      @hearned = session[:hearned] || 0
+    end
+
+    def save_hearned
+      session[:hearned] = @hearned
+    end
 end
