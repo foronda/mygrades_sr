@@ -31,6 +31,7 @@ GEM
     arel (3.0.2)
     bootstrap-sass (2.1.1.0)
     builder (3.0.4)
+<<<<<<< HEAD
     capybara (1.1.2)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -41,6 +42,18 @@ GEM
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
     coderay (1.0.8)
+||||||| merged common ancestors
+=======
+    capybara (1.1.2)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (~> 2.0)
+      xpath (~> 0.1.4)
+    childprocess (0.3.6)
+      ffi (~> 1.0, >= 1.0.6)
+>>>>>>> merge commit with rspec
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -60,11 +73,16 @@ GEM
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ||||||| merged common ancestors
 =======
     ffi (1.2.0)
     ffi (1.2.0-x86-mingw32)
 >>>>>>> Generated first rspec helper
+||||||| merged common ancestors
+=======
+    ffi (1.2.0-x86-mingw32)
+>>>>>>> merge commit with rspec
     gherkin (2.11.5)
       json (>= 1.4.6)
     gherkin (2.11.5-x86-mingw32)
@@ -99,10 +117,16 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.5)
+<<<<<<< HEAD
     libwebsocket (0.1.6.1)
       websocket
     listen (0.6.0)
     lumberjack (1.0.2)
+||||||| merged common ancestors
+=======
+    libwebsocket (0.1.6.1)
+      websocket
+>>>>>>> merge commit with rspec
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -110,8 +134,13 @@ GEM
     method_source (0.8.1)
     mime-types (1.19)
     multi_json (1.3.7)
+<<<<<<< HEAD
     nokogiri (1.5.5)
     nokogiri (1.5.5-x86-mingw32)
+||||||| merged common ancestors
+=======
+    nokogiri (1.5.5-x86-mingw32)
+>>>>>>> merge commit with rspec
     pg (0.14.1)
     pg (0.14.1-x86-mingw32)
     polyglot (0.3.3)
@@ -210,12 +239,19 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+<<<<<<< HEAD
     wdm (0.0.3)
     websocket (1.0.4)
     win32console (1.3.0)
     win32console (1.3.0-x86-mingw32)
     xpath (0.1.4)
       nokogiri (~> 1.3)
+||||||| merged common ancestors
+=======
+    websocket (1.0.4)
+    xpath (0.1.4)
+      nokogiri (~> 1.3)
+>>>>>>> merge commit with rspec
 
 PLATFORMS
   ruby
@@ -223,6 +259,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 2.1.1.0)
+<<<<<<< HEAD
 <<<<<<< HEAD
   coffee-rails (~> 3.2.1)
 <<<<<<< HEAD
@@ -238,6 +275,12 @@ DEPENDENCIES
   capybara (= 1.1.2)
   coffee-rails (~> 3.2.2)
 >>>>>>> Generated first rspec helper
+||||||| merged common ancestors
+  coffee-rails (~> 3.2.1)
+=======
+  capybara (= 1.1.2)
+  coffee-rails (~> 3.2.2)
+>>>>>>> merge commit with rspec
   cucumber
 >>>>>>> Updated GEMFile for RSpec
   googlecharts
@@ -268,6 +311,7 @@ DEPENDENCIES
 >>>>>>> Added Guardfile to automate test.
   rspec-rails
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Updated GEMFile for RSpec
   sass-rails (~> 3.2.3)
 ||||||| merged common ancestors
@@ -275,9 +319,20 @@ DEPENDENCIES
 =======
   sass-rails (~> 3.2.5)
 >>>>>>> Generated first rspec helper
+||||||| merged common ancestors
+  sass-rails (~> 3.2.3)
+=======
+  sass-rails (~> 3.2.5)
+>>>>>>> merge commit with rspec
   simple-navigation
   sqlite3
   tabs_on_rails
+<<<<<<< HEAD
   uglifier (>= 1.2.3)
   wdm
   win32console (= 1.3.0)
+||||||| merged common ancestors
+  uglifier (>= 1.0.3)
+=======
+  uglifier (>= 1.2.3)
+>>>>>>> merge commit with rspec
