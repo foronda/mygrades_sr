@@ -27,7 +27,8 @@ group :production do
   gem 'pg'
 =======
 	gem 'rspec-rails'
-	gem 'guard-spec'
+	gem 'guard-rspec'
+	gem 'wdm'
 	gem 'cucumber'
 >>>>>>> Updated GEMFile for RSpec
 end

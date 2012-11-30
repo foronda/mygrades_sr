@@ -11,5 +11,15 @@ describe "Students page" do
 		visit '/students'
 		page.should have_selector('th', :text => 'Course')
 	end
+
+	it "should have the th 'Username'" do
+		visit '/students'
+		page.should have_selector('th', :text => 'Username')
+	end
+	
+	it "should have the th 'Homework'" do
+		visit '/students'
+		page.should have_selector('th', :text => 'Homework')
+	end
 	
 end
