@@ -16,6 +16,8 @@ gem 'simple-navigation'
 group :development, :test do
   gem 'sqlite3'
 	gem 'rspec-rails'
+	gem 'guard-rspec'
+	gem 'wdm'
 	gem 'cucumber'
 end
 
@@ -30,6 +32,9 @@ end
 
 group :test do
 	gem 'capybara', '1.1.2'
+	gem 'rb-fchange', '0.0.5'
+  gem 'rb-notifu', '0.0.4'
+  gem 'win32console', '1.3.0'
 end
 
 group :production do
