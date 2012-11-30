@@ -1,4 +1,5 @@
 module StudentsHelper
+	
 	def calc_homeworks(student_id)
 		@h_total = 0
 		@h_earned = 0
@@ -47,6 +48,9 @@ module StudentsHelper
 			data +="</td>"
 		end
 		data.html_safe
+		
+		# Store variables into session
+		save_hearned = @h_earned
 	end
 
 	def calc_labs(student_id)
@@ -97,6 +101,7 @@ module StudentsHelper
 		else
 			raw("<td>N/A</td>")
 		end
+		load_hearned
 	end
 	
 	# Helper functions
