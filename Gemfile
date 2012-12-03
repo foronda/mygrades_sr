@@ -15,16 +15,16 @@ gem 'simple-navigation'
 # for Heroku deployment - as described in Ap. A of ELLS book
 group :development, :test do
   gem 'sqlite3'
-<<<<<<< HEAD
 	gem 'rspec-rails'
-	gem 'cucumber'
-=======
+	gem 'cucumber-rails'
+  gem 'cucumber-rails-training-wheels'
+  gem 'database_cleaner'
+  gem 'launchy'
   gem 'rspec-rails'
 end
 
 group :production do
   gem 'pg'
->>>>>>> Testing phase started
 end
 
 # Gems used only for assets and not required
