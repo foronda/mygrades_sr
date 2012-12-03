@@ -101,6 +101,7 @@ class GradesController < ApplicationController
             @task.each do |t|
               if t.name == fname && t.course_id == s.course_id && s.course_id == c.id
                 Grade.create(:course_id => c.id, :task_id => t.id, :student_id => s.id, :earned => val[dex])
+                #end
               end
             end
           end

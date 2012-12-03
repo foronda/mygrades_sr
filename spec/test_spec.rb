@@ -22,11 +22,11 @@ describe Course do
     end
     @team = Team.all
     @team.each do |t|
-      if t.name == "geopro"
+      if t.name == "Geopro"
           Student.create(:course_id=>t.course_id, :team_id=>t.id, :username=>"jon")
           Student.create(:course_id=>t.course_id, :team_id=>t.id, :username=>"geoffrey")
       end
-      if t.name == "hamburger"
+      if t.name == "Hamburger"
           Student.create(:course_id=>t.course_id, :team_id=>t.id, :username=>"tyler")
       end
     end
@@ -53,15 +53,23 @@ describe Course do
     end
   end
 
+  describe "find student" do
+    it "should find tyler's id" do
+      @student = Student.all
+      @student.size.should eql 3
+    end
+  end
+
   describe "upload" do
     it "should upload grades for tyler" do
       @grade = Grade.all
       Tempup.create(:upname=>"hw1")
       @grade.each do |g|
         if g.student_id == 3
-          g.size.should eql 1
+          g.size.should eql 2
         end
       end
+       gg.should eql 2
     end
   end
 

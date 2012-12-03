@@ -12,7 +12,23 @@ describe Course do
     @course = Course.all
     @course.each do |c|
       cid = c.id
-      Task.create(:course_id=>cid, :name=>"hw1", :total=>100, :due_date=>2012-1-10)
+      @category = Category.all
+      @category.each do |cat|
+        if cat.name == "homework"
+          catid = cat.id
+          Task.create(:course_id=>cid, :category_id=>catid, :name=>"hw1", :total=>100, :due_date=>2012-1-10)
+        end
+      end
+    end
+    @team = Team.all
+    @team.each do |t|
+      if t.name == "geopro"
+          Student.create(:course_id=>t.course_id, :team_id=>t.id, :username=>"jon")
+          Student.create(:course_id=>t.course_id, :team_id=>t.id, :username=>"geoffrey")
+      end
+      if t.name == "hamburger"
+          Student.create(:course_id=>t.course_id, :team_id=>t.id, :username=>"tyler")
+      end
     end
   end
 
@@ -32,8 +48,28 @@ describe Course do
 
   describe "teams" do
     it "should have created 2 teams" do
-        @team = Team.all
-        @team.size.should eql 2
+      @team = Team.all
+      @team.size.should eql 2
+    end
+  end
+
+  describe "find student" do
+    it "should find tyler's id" do
+      @student = Student.all
+      @student.size.should eql 3
+    end
+  end
+
+  describe "upload" do
+    it "should upload grades for tyler" do
+      @grade = Grade.all
+      Tempup.create(:upname=>"hw1")
+      @grade.each do |g|
+        if g.student_id == 3
+          g.size.should eql 2
+        end
+      end
+       gg.should eql 2
     end
   end
 

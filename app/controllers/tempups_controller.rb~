@@ -42,20 +42,6 @@ class TempupsController < ApplicationController
   def create
     @tempup = Tempup.new(params[:tempup])
 
-    x = 0
-    stu = Array.new
-    val = Array.new
-    name = params[:grade_file].original_filename
-    file = params['user'][:grade_file]
-    file.read.split.each do |f|
-      if x%2 == 0
-        stu << f
-      elsif
-        val << f
-      end
-      x++
-    end 
-
     respond_to do |format|
       if @tempup.save
         format.html { redirect_to @tempup, notice: 'Tempup was successfully created.' }
@@ -65,8 +51,6 @@ class TempupsController < ApplicationController
         format.json { render json: @tempup.errors, status: :unprocessable_entity }
       end
     end
-
-
   end
 
   # PUT /tempups/1

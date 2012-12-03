@@ -13,7 +13,7 @@ MygradesSr::Application.routes.draw do
 
   resources :courses
 
-  post 'grades/upload_grade'
+  post 'grades/upload'
 
   #get "home/index"
   root :to => "home#index"
