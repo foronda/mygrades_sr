@@ -1,12 +1,13 @@
-Feature: View Course Progress
-   In order to view course progress
-   As a student of Tep's class
-   I want to view my current progress and standing.
+Feature: Add Category
+   In order to add category weights
+   As an instructor
+   I want to add category weights for a class
 
-Scenario: View Course Progress
-   Given that I am on the MyGrades home page
-   And I am logged in as a student
-   When I follow "View Progress" Column
-   When I press "View Progress" Navigation Tab
-   Then the View Progress Panel should be shown
+Scenario: add category
+   Given I am on the categories page
+   And I follow "New Category"
+   And I fill in "Name" with "Homework"
+   And I fill in "Weight" with "0.3"
+   When I press "Create"
+   Then I should see "Category was successfully created"
    

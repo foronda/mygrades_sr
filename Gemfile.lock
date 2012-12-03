@@ -28,6 +28,7 @@ GEM
     activesupport (3.2.9)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    addressable (2.3.2)
     arel (3.0.2)
     bootstrap-sass (2.1.1.0)
     builder (3.0.4)
@@ -79,18 +80,23 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
-<<<<<<< HEAD
     cucumber (1.2.1)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.3)
       gherkin (~> 2.11.0)
       json (>= 1.4.6)
-=======
->>>>>>> Testing phase started
+    cucumber-rails (1.3.0)
+      capybara (>= 1.1.2)
+      cucumber (>= 1.1.8)
+      nokogiri (>= 1.5.0)
+    cucumber-rails-training-wheels (1.0.0)
+      cucumber-rails (>= 1.1.1)
+    database_cleaner (0.9.1)
     diff-lcs (1.1.3)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -132,10 +138,26 @@ GEM
 ||||||| merged common ancestors
 =======
 =======
+||||||| merged common ancestors
+<<<<<<< HEAD
+    gherkin (2.11.5)
+      json (>= 1.4.6)
+    gherkin (2.11.5-x86-mingw32)
+      json (>= 1.4.6)
+=======
+=======
+>>>>>>> Cucumber test passed for categories.
     ffi (1.2.0)
     ffi (1.2.0-x86-mingw32)
+<<<<<<< HEAD
 >>>>>>> Testing phase started
 >>>>>>> Testing phase started
+||||||| merged common ancestors
+>>>>>>> Testing phase started
+=======
+    gherkin (2.11.5)
+      json (>= 1.4.6)
+>>>>>>> Cucumber test passed for categories.
     googlecharts (1.6.8)
 <<<<<<< HEAD
 >>>>>>> Added Google charts
@@ -159,6 +181,12 @@ GEM
     json (1.7.5)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+||||||| merged common ancestors
+=======
+    launchy (2.1.2)
+      addressable (~> 2.3)
+>>>>>>> Cucumber test passed for categories.
     libwebsocket (0.1.6.1)
       websocket
     listen (0.6.0)
@@ -272,14 +300,25 @@ GEM
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
 <<<<<<< HEAD
+<<<<<<< HEAD
     rubyzip (0.9.9)
 ||||||| merged common ancestors
 =======
 <<<<<<< HEAD
 =======
+||||||| merged common ancestors
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> Cucumber test passed for categories.
     rubyzip (0.9.9)
+<<<<<<< HEAD
 >>>>>>> Testing phase started
 >>>>>>> Testing phase started
+||||||| merged common ancestors
+>>>>>>> Testing phase started
+=======
+>>>>>>> Cucumber test passed for categories.
     sass (3.2.3)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -365,6 +404,7 @@ DEPENDENCIES
 ||||||| merged common ancestors
 =======
   capybara (= 1.1.2)
+<<<<<<< HEAD
 >>>>>>> Testing phase started
   coffee-rails (~> 3.2.1)
 =======
@@ -373,6 +413,15 @@ DEPENDENCIES
 >>>>>>> merge commit with rspec
   cucumber
 >>>>>>> Updated GEMFile for RSpec
+||||||| merged common ancestors
+  coffee-rails (~> 3.2.1)
+  cucumber
+=======
+  coffee-rails (~> 3.2.2)
+  cucumber-rails
+  cucumber-rails-training-wheels
+  database_cleaner
+>>>>>>> Cucumber test passed for categories.
   googlecharts
 <<<<<<< HEAD
 >>>>>>> Added Google charts
@@ -381,6 +430,7 @@ DEPENDENCIES
   guard-rspec
 >>>>>>> Added Guardfile to automate test.
   jquery-rails
+  launchy
   pg
 <<<<<<< HEAD
   rails (= 3.2.1)
@@ -402,6 +452,7 @@ DEPENDENCIES
   rspec-rails
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Updated GEMFile for RSpec
   sass-rails (~> 3.2.3)
 ||||||| merged common ancestors
@@ -414,9 +465,15 @@ DEPENDENCIES
 =======
   sass-rails (~> 3.2.5)
 >>>>>>> merge commit with rspec
+||||||| merged common ancestors
+  sass-rails (~> 3.2.3)
+=======
+  sass-rails (~> 3.2.5)
+>>>>>>> Cucumber test passed for categories.
   simple-navigation
   sqlite3
   tabs_on_rails
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   uglifier (>= 1.2.3)
@@ -439,3 +496,8 @@ DEPENDENCIES
 >>>>>>> rspec
 =======
 >>>>>>> Added sessions table
+||||||| merged common ancestors
+  uglifier (>= 1.0.3)
+=======
+  uglifier (>= 1.2.3)
+>>>>>>> Cucumber test passed for categories.

@@ -17,6 +17,7 @@ group :development, :test do
   gem 'sqlite3'
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   gem "rspec-rails"
   gem "cucumber"
 end
@@ -31,7 +32,12 @@ group :production do
 =======
 <<<<<<< HEAD
 >>>>>>> Testing phase started
+||||||| merged common ancestors
+<<<<<<< HEAD
+=======
+>>>>>>> Cucumber test passed for categories.
 	gem 'rspec-rails'
+<<<<<<< HEAD
 	gem 'guard-rspec'
 	gem 'wdm'
 	gem 'cucumber'
@@ -40,13 +46,27 @@ group :production do
 ||||||| merged common ancestors
 =======
 =======
+||||||| merged common ancestors
+	gem 'cucumber'
+=======
+=======
+	gem 'cucumber-rails'
+  gem 'cucumber-rails-training-wheels'
+  gem 'database_cleaner'
+  gem 'launchy'
+>>>>>>> Cucumber test passed for categories.
   gem 'rspec-rails'
 end
 
 group :production do
   gem 'pg'
+<<<<<<< HEAD
 >>>>>>> Testing phase started
 >>>>>>> Testing phase started
+||||||| merged common ancestors
+>>>>>>> Testing phase started
+=======
+>>>>>>> Cucumber test passed for categories.
 end
 
 # Gems used only for assets and not required
