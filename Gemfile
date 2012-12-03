@@ -38,6 +38,7 @@ group :production do
 >>>>>>> Cucumber test passed for categories.
 	gem 'rspec-rails'
 <<<<<<< HEAD
+<<<<<<< HEAD
 	gem 'guard-rspec'
 	gem 'wdm'
 	gem 'cucumber'
@@ -51,6 +52,10 @@ group :production do
 =======
 =======
 	gem 'cucumber-rails'
+||||||| merged common ancestors
+	gem 'cucumber-rails'
+=======
+>>>>>>> Cucumber test and modified Course Page
   gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'
   gem 'launchy'
@@ -80,9 +85,14 @@ end
 
 group :test do
 	gem 'capybara', '1.1.2'
+<<<<<<< HEAD
 	gem 'rb-fchange', '0.0.5'
   gem 'rb-notifu', '0.0.4'
   gem 'win32console', '1.3.0'
+||||||| merged common ancestors
+=======
+  gem 'cucumber-rails'
+>>>>>>> Cucumber test and modified Course Page
 end
 
 group :production do
