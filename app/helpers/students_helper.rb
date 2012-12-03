@@ -29,12 +29,8 @@ module StudentsHelper
 			# Sort hash alphabetically
 			hHash.keys.sort
 			
-			# Generate graph if homework exists...
-			@graph = generate_graph(hHash, hLegend)
-			
-			# Create an image link
-			data += "</br><img src=#{@graph}/></br>"
-			data += "</p></div></div>"
+			# Generate graph if homework exists and create image link
+			data += generate_lower_modal_div(generate_graph(hHash, hLegend))
 			data += "Total #{calc_percentage(@h_earned, @h_total)}% (#{@h_earned}/#{@h_total})</td>"
 		else
 			data +="</td>"
@@ -161,8 +157,11 @@ module StudentsHelper
 		return data
 	end
 	
-	def generate_lower_modal_div
+	def generate_lower_modal_div(graph)
+		data = "</br><img src=#{graph}/></br>"
+		data += "</p></div></div>"
 		
+		return data
 	end
 	
 	
