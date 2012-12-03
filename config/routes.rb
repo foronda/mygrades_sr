@@ -1,5 +1,9 @@
 MygradesSr::Application.routes.draw do
+<<<<<<< HEAD
   resources :tempups
+=======
+  resources :evals
+>>>>>>> 309bca6b373c2ab75367569d884a6a8bb22e150f
 
   resources :teams
 
