@@ -74,12 +74,12 @@ class GradesController < ApplicationController
 
   def upload_grade
     @grade = Grade.all
-    @tempup = Tempup.new
     stu = Array.new
     val = Array.new
     table = Array.new
     file = params[:grade_file]
     fname = file.original_filename
+    fname = fname.split('.')
     file.read.split.each do |part|
       table << part
     end
@@ -99,7 +99,7 @@ class GradesController < ApplicationController
         if s.username == sid
           @course.each do |c|
             @task.each do |t|
-              if t.name == fname && t.course_id == s.course_id && s.course_id == c.id
+              if t.name == fname[0] && t.course_id == s.course_id && s.course_id == c.id
                 Grade.create(:course_id => c.id, :task_id => t.id, :student_id => s.id, :earned => val[dex])
               end
             end

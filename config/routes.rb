@@ -16,6 +16,8 @@ MygradesSr::Application.routes.draw do
 
   post 'grades/upload_grade'
 
+  post 'students/upload_student'
+
   #get "home/index"
   root :to => "home#index"
   # The priority is based upon order of creation:

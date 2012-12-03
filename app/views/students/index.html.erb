@@ -24,3 +24,9 @@
 <br />
 
 <%= link_to 'New Student', new_student_path %>
+
+<h2>Or Upload Student list</h2>
+<%= form_tag({:action => :upload_student}, :multipart => true) do %>
+  <%= file_field_tag 'student_file' %>
+  <%= submit_tag "Upload" %>
+<% end %>

@@ -80,4 +80,61 @@ class StudentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def upload_student
+    stu = Array.new
+    cour = Array.new
+    table = Array.new
+    na = 0
+    file = params[:student_file]
+    fname = file.original_filename
+    fname = fname.split('.')
+    file.read.split.each do |part|
+      stu << part
+    end
+    @course = Course.all
+    @team = Team.all
+      #search for a nil team to add students to
+      @course.each do |c|
+        if c.name == fname[0]
+          @team.each do |t|
+            if t.name == 'NA' && t.course_id == c.id
+              na = 1
+            end
+          end
+        end
+      end
+      #if there is no nil team, add it
+      if na == 0
+        @course.each do |c|
+          if c.name == fname[0]
+            Team.create(:name => 'NA', :course_id => c.id)
+          end
+        end
+        na = 1
+      end
+      #add students to nil team
+      @team = Team.all
+      if na == 1
+        @course.each do |c|
+          if c.name == fname[0]
+            @team.each do |t|
+              if t.name == 'NA' && t.course_id == c.id
+                stu.each do |s|
+                  Student.create(:course_id => c.id, :team_id => t.id, :username => s)
+                end
+              end
+            end
+          end
+        end
+      end
+    #table.each_with_index do |ta, d|
+      #if d%2 == 0
+        #cour << ta
+      #else
+        #stu << ta
+      #end
+    #end
+    redirect_to students_path
+  end
 end
