@@ -16,7 +16,6 @@ gem 'simple-navigation'
 group :development, :test do
   gem 'sqlite3'
 	gem 'rspec-rails'
-	gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'
   gem 'launchy'
@@ -38,6 +37,7 @@ end
 
 group :test do
 	gem 'capybara', '1.1.2'
+  gem 'cucumber-rails'
 end
 
 group :production do
