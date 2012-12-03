@@ -3,43 +3,35 @@ module StudentsHelper
 	def calc_homeworks(student_id)
 		@h_total = 0
 		@h_earned = 0
-		hName = []
-		hGrade = []
+		hHash = Hash.new()
 		hLegend = []
+			
+		# Calls helper function for generating modal popup id's
+		data = generate_upper_modal_div("homework")
 
-		data ="<td><div id='homework' class='modal hide fade' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>"
-		data += "<div class='modal-header'><h3 id='homeworkLabel'> Homework Breakdown</h3></div>"
-		data += "<div class='modal-body'><p>"
 		Grade.find_all_by_student_id(student_id).each do |grade|
 			Task.find_all_by_id_and_category_id(grade.task_id, 1).each do |homework|
 					@h_total += homework.total
 					@h_earned += grade.earned
-					hName << homework.name
-					# Calls helper functions
-					hGrade << calc_percentage(grade.earned, homework.total)
-					hLegend << generate_legend(homework, grade)
+					
+					# Stores values into a hash
+					# Keys = homework name
+					# Values = grade percentage
+					hHash[homework.name] = calc_percentage(grade.earned, homework.total)
 			end
 		end
 						
-		
-		if(@h_total != 0)
-		
+		if(!hHash.empty?)
 			# Generates total field data
-			hGrade << calc_percentage(@h_earned, @h_total)
-			hName << "Total"
+			hHash["Total"] = calc_percentage(@h_earned, @h_total)
 			hLegend << "Homework Total - #{calc_percentage(@h_earned, @h_total)}% (#{@h_earned}/#{@h_total})"
 			
+			# Sort hash alphabetically
+			hHash.keys.sort
+			
 			# Generate graph if homework exists...
-			@graph = Gchart.bar(:size => '400x200',
-												:bar_colors => '76A4FB',
-												:background => 'EEEEEE',
-												:data => hGrade, 
-												:axis_with_labels => ['x', 'y'],
-												:axis_labels => [hName],
-												:legend => hLegend,	
-												:bar_width_and_spacing => '40,30',
-												:bg => {:color => 'FFFFFF', :type => 'solid'}, 
-												:encoding => 'text')
+			@graph = generate_graph(hHash, hLegend)
+			
 			# Create an image link
 			data += "</br><img src=#{@graph}/></br>"
 			data += "</p></div></div>"
@@ -146,6 +138,31 @@ module StudentsHelper
 	
 	def generate_legend(homework, grade)
 		return "#{homework.name} - #{calc_percentage(grade.earned, homework.total)}% (#{grade.earned}/#{homework.total})"
+	end
+	
+	def generate_graph(hash, legend)
+		return	Gchart.bar(:size => '400x200',
+											 :bar_colors => '76A4FB',
+											 :background => 'EEEEEE',
+											 :data => hash.values, 
+											 :axis_with_labels => ['x', 'y'],
+											 :axis_labels => [hash.keys],
+											 :legend => legend,	
+											 :bar_width_and_spacing => '40,30',
+											 :bg => {:color => 'FFFFFF', :type => 'solid'}, 
+											 :encoding => 'text')
+	end
+	
+	def generate_upper_modal_div(name)
+		data = "<td><div id='#{name}' class='modal hide fade' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>"
+		data += "<div class='modal-header'><h3 id='#{name}Label'> #{name.capitalize} Breakdown</h3></div>"
+		data += "<div class='modal-body'><p>"
+		
+		return data
+	end
+	
+	def generate_lower_modal_div
+		
 	end
 	
 	
