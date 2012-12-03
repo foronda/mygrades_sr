@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20121128213417) do
-=======
 ActiveRecord::Schema.define(:version => 20121115231020) do
->>>>>>> 309bca6b373c2ab75367569d884a6a8bb22e150f
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -87,11 +83,5 @@ ActiveRecord::Schema.define(:version => 20121115231020) do
   end
 
   add_index "teams", ["course_id"], :name => "index_teams_on_course_id"
-
-  create_table "tempups", :force => true do |t|
-    t.string   "upname"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
 end
