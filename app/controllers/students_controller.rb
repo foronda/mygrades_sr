@@ -160,4 +160,9 @@ class StudentsController < ApplicationController
     def save_hearned
       session[:hearned] = @hearned
     end
+
+	
+	before_filter :load_hearned
+  after_filter :save_hearned
+
 end

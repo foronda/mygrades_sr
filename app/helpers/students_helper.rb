@@ -50,24 +50,57 @@ module StudentsHelper
 		data.html_safe
 		
 		# Store variables into session
-		save_hearned = @h_earned
+		#session[:hearned] = @h_earned
+		#session[:htotal] = @h_total
 	end
 
 	def calc_labs(student_id)
 		@l_total = 0
 		@l_earned = 0
+		
+		lName = []
+		lGrade = []
+		lLegend = []
+		
+		data ="<td><div id='lab' class='modal hide fade' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>"
+		data += "<div class='modal-header'><h3 id='labLabel'> Lab Breakdown</h3></div>"
+		data += "<div class='modal-body'><p>"
 		Grade.find_all_by_student_id(student_id).each do |grade|
 			Task.find_all_by_id_and_category_id(grade.task_id, 2).each do |lab|
 					@l_total += lab.total
 					@l_earned += grade.earned
+					lName << lab.name
+					# Calls helper functions
+					lGrade << calc_percentage(grade.earned, lab.total)
+					lLegend << generate_legend(lab, grade)
 			end
 		end
 
 		if(@l_total != 0)
-			raw("<td> #{((@l_earned.to_f/@l_total.to_f)*100).round}% (#{@l_earned}/#{@l_total})</td>" ) 
+			# Generates total field data
+			lGrade << calc_percentage(@h_earned, @h_total)
+			lName << "Total"
+			lLegend << "Lab Total - #{calc_percentage(@l_earned, @l_total)}% (#{@l_earned}/#{@l_total})"
+			
+			# Generate graph if lab exists...
+			@graph = Gchart.bar(:size => '400x200',
+												:bar_colors => '76A4FB',
+												:background => 'EEEEEE',
+												:data => lGrade, 
+												:axis_with_labels => ['x', 'y'],
+												:axis_labels => [lName],
+												:legend => lLegend,	
+												:bar_width_and_spacing => '40,30',
+												:bg => {:color => 'FFFFFF', :type => 'solid'}, 
+												:encoding => 'text')
+			# Create an image link
+			data += "</br><img src=#{@graph}/></br>"
+			data += "</p></div></div>"
+			data += "Total #{calc_percentage(@l_earned, @l_total)}% (#{@l_earned}/#{@l_total})</td>"
 		else
-			raw("<td>N/A</td>")
+			data +="</td>"
 		end
+		data.html_safe
 	end
 	
 	def calc_midterms(student_id)
@@ -96,12 +129,14 @@ module StudentsHelper
 					@c_earned += grade.earned
 			end
 		end
+		#@c_total = calc_percentage(session[:hearned], session[:htotal])
+		
 		if(@c_total != 0)
-			raw("<td> #{((@c_earned.to_f/@c_total.to_f)*100).round}% (#{@c_earned}/#{@c_total})</td>" ) 
+			raw("<td> #{@c_total}<td>" ) 
 		else
 			raw("<td>N/A</td>")
 		end
-		load_hearned
+		#raw("#{session[:hearned]}")
 	end
 	
 	# Helper functions
