@@ -91,7 +91,4 @@ class StudentsController < ApplicationController
       format.json { head :no_content }
     end
   end
-	
-	before_filter :load_hearned
-  after_filter :save_hearned
 end

@@ -1,15 +1,40 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Course:</b>
-  <%= @course.name %>
-</p>
-
-<p>
-  <b>Username:</b>
-  <%= @student.username %>
-</p>
-
+<h1><%=@course.name%> Progress (<%=@student.username%>)</h1>
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+	<table class="table table-hover">
+		<tr class="success">
+			<th>Course</th>
+			<th>Username</th>
+			<th>			
+				<div>
+					<a data-toggle="modal" data-target="#homework">
+						Homeworks
+					</a>
+				</div>
+			</th>
+			<th>
+				<div>
+					<a data-toggle="modal" data-target="#lab">
+						Labs
+					</a>
+				</div>
+			</th>
+			<th>Midterm Total</th>
+			<th>Course Total</th>
+		</tr>
+		<tr class="success">
+			<td><%= @course.name %></td>
+			<td><%= @student.username %></td>
+			<%= calc_homeworks(@student.id) %>
+			<%= calc_labs(@student.id) %>
+			<%= calc_midterms(@student.id) %>
+			<%= calc_course(@student.id) %>
+		</tr>
+	</table>
+<br />
+		</div>
+	</div>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>

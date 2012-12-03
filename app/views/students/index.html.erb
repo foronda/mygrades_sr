@@ -6,13 +6,7 @@
 		<tr class="success">
 			<th>Courses</th>
 			<th>Username</th>
-			<th>			
-				<div>
-					<a data-toggle="modal" data-target="#homework">
-						Homework
-					</a>
-				</div>
-			</th>
+			<th>Homework</th>
 			<th>Lab Total </th>
 			<th>Midterm Total </th>
 			<th>Course Total </th>
@@ -25,13 +19,12 @@
 			<td><%= Course.find(student.course).name %></td>
 			<td><%= student.username %></td>
 			<%= calc_homeworks(student.id) %>
-			<%= session[:h_earned] %>
 			<%= calc_labs(student.id) %>
 			<%= calc_midterms(student.id) %>
 			<%= calc_course(student.id) %>
-			<td><%= link_to 'Show', student %></td>
-			<td><%= link_to 'Edit', edit_student_path(student) %></td>
-			<td><%= link_to 'Destroy', student, confirm: 'Are you sure?', method: :delete %></td>
+			<td><%= link_to 'Student Progress', student %></td>
+			<td><%= link_to 'Edit Student', edit_student_path(student) %></td>
+			<td><%= link_to 'Delete Student', student, confirm: 'Are you sure?', method: :delete %></td>
 		</tr>
 	<% end %>
 	</table>
