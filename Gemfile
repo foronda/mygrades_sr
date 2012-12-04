@@ -15,63 +15,23 @@ gem 'simple-navigation'
 # for Heroku deployment - as described in Ap. A of ELLS book
 group :development, :test do
   gem 'sqlite3'
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   gem "rspec-rails"
   gem "cucumber"
-end
-group :production do
-  gem 'pg'
-||||||| merged common ancestors
-end
-group :production do
-  gem 'pg'
-=======
-||||||| merged common ancestors
-=======
-<<<<<<< HEAD
->>>>>>> Testing phase started
-||||||| merged common ancestors
-<<<<<<< HEAD
-=======
->>>>>>> Cucumber test passed for categories.
-	gem 'rspec-rails'
-<<<<<<< HEAD
-<<<<<<< HEAD
-	gem 'guard-rspec'
-	gem 'wdm'
-	gem 'cucumber'
-<<<<<<< HEAD
->>>>>>> Updated GEMFile for RSpec
-||||||| merged common ancestors
-=======
-=======
-||||||| merged common ancestors
-	gem 'cucumber'
-=======
-=======
-	gem 'cucumber-rails'
-||||||| merged common ancestors
-	gem 'cucumber-rails'
-=======
->>>>>>> Cucumber test and modified Course Page
-  gem 'cucumber-rails-training-wheels'
-  gem 'database_cleaner'
-  gem 'launchy'
->>>>>>> Cucumber test passed for categories.
-  gem 'rspec-rails'
 end
 
 group :production do
   gem 'pg'
-<<<<<<< HEAD
->>>>>>> Testing phase started
->>>>>>> Testing phase started
-||||||| merged common ancestors
->>>>>>> Testing phase started
-=======
->>>>>>> Cucumber test passed for categories.
+	gem 'guard-rspec'
+	#gem 'wdm'
+	gem 'cucumber'
+	gem 'cucumber-rails'
+  gem 'cucumber-rails-training-wheels'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'rspec-rails'
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-fchange', :require => false
 end
 
 # Gems used only for assets and not required
@@ -85,14 +45,10 @@ end
 
 group :test do
 	gem 'capybara', '1.1.2'
-<<<<<<< HEAD
-	gem 'rb-fchange', '0.0.5'
-  gem 'rb-notifu', '0.0.4'
-  gem 'win32console', '1.3.0'
-||||||| merged common ancestors
-=======
+	#gem 'rb-fchange', '0.0.5'
+  #gem 'rb-notifu', '0.0.4'
+  #gem 'win32console', '1.3.0'
   gem 'cucumber-rails'
->>>>>>> Cucumber test and modified Course Page
 end
 
 group :production do
