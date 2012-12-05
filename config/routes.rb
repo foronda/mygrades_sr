@@ -1,12 +1,9 @@
 MygradesSr::Application.routes.draw do
-<<<<<<< HEAD
-=======
 
   resources :evals
 
   resources :teams
 
->>>>>>> 175ee1b65cfcf95602954802c35750fdc71bfafc
   resources :categories
 
   resources :grades

@@ -27,17 +27,6 @@ end
 
 group :production do
   gem 'pg'
-	gem 'guard-rspec'
-	#gem 'wdm'
-	gem 'cucumber'
-	gem 'cucumber-rails'
-  gem 'cucumber-rails-training-wheels'
-  gem 'database_cleaner'
-  gem 'launchy'
-  gem 'rspec-rails'
-  gem 'rb-inotify', :require => false
-  gem 'rb-fsevent', :require => false
-  gem 'rb-fchange', :require => false
 end
 
 # Gems used only for assets and not required
