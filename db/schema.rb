@@ -11,7 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
 ActiveRecord::Schema.define(:version => 20121130220040) do
 
   create_table "categories", :force => true do |t|
@@ -66,14 +65,12 @@ ActiveRecord::Schema.define(:version => 20121130220040) do
 
   create_table "students", :force => true do |t|
     t.integer  "course_id"
-    t.integer  "team_id"
     t.string   "username"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   add_index "students", ["course_id"], :name => "index_students_on_course_id"
-  add_index "students", ["team_id"], :name => "index_students_on_team_id"
 
   create_table "tasks", :force => true do |t|
     t.integer  "course_id"

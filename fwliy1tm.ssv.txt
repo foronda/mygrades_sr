@@ -1,0 +1,211 @@
+Merge branch 'master' of https://github.com/foronda/mygrades_sr
+
+Conflicts:
+	.rspec
+	Gemfile
+	Gemfile.lock
+	app/helpers/students_helper.rb
+	app/views/layouts/application.html.erb
+	app/views/students/index.html.erb
+	app/views/students/show.html.erb
+	config/routes.rb
+	db/migrate/20121114190359_create_grades.rb
+	db/migrate/20121115220531_create_categories.rb
+	features/AddCourse.feature
+	spec/spec_helper.rb
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 37 and 49 different commits each, respectively.
+#
+# All conflicts fixed but you are still merging.
+#   (use "git commit" to conclude merge)
+#
+# Changes to be committed:
+#
+#	modified:   .gitattributes
+#	modified:   .gitignore
+#	new file:   .project
+#	modified:   Gemfile
+#	modified:   Gemfile.lock
+#	new file:   Gemfile~
+#	modified:   README.rdoc
+#	modified:   Rakefile
+#	modified:   app/assets/images/rails.png
+#	modified:   app/assets/javascripts/application.js
+#	modified:   app/assets/javascripts/categories.js.coffee
+#	modified:   app/assets/javascripts/courses.js.coffee
+#	new file:   app/assets/javascripts/evals.js.coffee
+#	modified:   app/assets/javascripts/grades.js.coffee
+#	modified:   app/assets/javascripts/home.js.coffee
+#	modified:   app/assets/javascripts/students.js.coffee
+#	modified:   app/assets/javascripts/tasks.js.coffee
+#	new file:   app/assets/javascripts/teams.js.coffee
+#	modified:   app/assets/stylesheets/application.bak
+#	modified:   app/assets/stylesheets/categories.css.scss
+#	modified:   app/assets/stylesheets/courses.css.scss
+#	new file:   app/assets/stylesheets/evals.css.scss
+#	modified:   app/assets/stylesheets/grades.css.scss
+#	modified:   app/assets/stylesheets/home.css.scss
+#	modified:   app/assets/stylesheets/scaffolds.css.scss
+#	modified:   app/assets/stylesheets/students.css.scss
+#	modified:   app/assets/stylesheets/tasks.css.scss
+#	new file:   app/assets/stylesheets/teams.css.scss
+#	modified:   app/controllers/application_controller.rb
+#	modified:   app/controllers/categories_controller.rb
+#	modified:   app/controllers/courses_controller.rb
+#	new file:   app/controllers/evals_controller.rb
+#	modified:   app/controllers/grades_controller.rb
+#	new file:   app/controllers/grades_controller.rb~
+#	modified:   app/controllers/home_controller.rb
+#	modified:   app/controllers/students_controller.rb
+#	modified:   app/controllers/tasks_controller.rb
+#	new file:   app/controllers/teams_controller.rb
+#	new file:   app/controllers/tempups_controller.rb~
+#	modified:   app/helpers/application_helper.rb
+#	modified:   app/helpers/categories_helper.rb
+#	modified:   app/helpers/courses_helper.rb
+#	new file:   app/helpers/evals_helper.rb
+#	modified:   app/helpers/grades_helper.rb
+#	modified:   app/helpers/home_helper.rb
+#	modified:   app/helpers/students_helper.rb
+#	modified:   app/helpers/tasks_helper.rb
+#	new file:   app/helpers/teams_helper.rb
+#	modified:   app/mailers/.gitkeep
+#	modified:   app/models/.gitkeep
+#	modified:   app/models/category.rb
+#	modified:   app/models/course.rb
+#	new file:   app/models/eval.rb
+#	modified:   app/models/grade.rb
+#	modified:   app/models/student.rb
+#	modified:   app/models/task.rb
+#	new file:   app/models/team.rb
+#	modified:   app/views/categories/_form.html.erb
+#	modified:   app/views/categories/edit.html.erb
+#	modified:   app/views/categories/index.html.erb
+#	modified:   app/views/categories/new.html.erb
+#	modified:   app/views/categories/show.html.erb
+#	modified:   app/views/courses/_form.html.erb
+#	modified:   app/views/courses/edit.html.erb
+#	modified:   app/views/courses/index.html.erb
+#	modified:   app/views/courses/new.html.erb
+#	modified:   app/views/courses/show.html.erb
+#	new file:   app/views/evals/_form.html.erb
+#	new file:   app/views/evals/edit.html.erb
+#	new file:   app/views/evals/index.html.erb
+#	new file:   app/views/evals/new.html.erb
+#	new file:   app/views/evals/show.html.erb
+#	modified:   app/views/grades/_form.html.erb
+#	modified:   app/views/grades/edit.html.erb
+#	modified:   app/views/grades/index.html.erb
+#	new file:   app/views/grades/index.html.erb~
+#	modified:   app/views/grades/new.html.erb
+#	modified:   app/views/grades/show.html.erb
+#	modified:   app/views/home/index.html.erb
+#	modified:   app/views/layouts/application.html.erb
+#	modified:   app/views/students/_form.html.erb
+#	modified:   app/views/students/edit.html.erb
+#	modified:   app/views/students/index.html.erb
+#	modified:   app/views/students/new.html.erb
+#	modified:   app/views/students/show.html.erb
+#	modified:   app/views/tasks/_form.html.erb
+#	modified:   app/views/tasks/edit.html.erb
+#	modified:   app/views/tasks/index.html.erb
+#	modified:   app/views/tasks/new.html.erb
+#	modified:   app/views/tasks/show.html.erb
+#	new file:   app/views/teams/_form.html.erb
+#	new file:   app/views/teams/edit.html.erb
+#	new file:   app/views/teams/index.html.erb
+#	new file:   app/views/teams/new.html.erb
+#	new file:   app/views/teams/show.html.erb
+#	modified:   config.ru
+#	modified:   config/application.rb
+#	modified:   config/boot.rb
+#	modified:   config/database.yml
+#	modified:   config/environment.rb
+#	modified:   config/environments/development.rb
+#	modified:   config/environments/production.rb
+#	modified:   config/environments/test.rb
+#	new file:   config/environments/test.rb~
+#	modified:   config/initializers/backtrace_silencers.rb
+#	modified:   config/initializers/inflections.rb
+#	modified:   config/initializers/mime_types.rb
+#	modified:   config/initializers/secret_token.rb
+#	modified:   config/initializers/session_store.rb
+#	modified:   config/initializers/wrap_parameters.rb
+#	modified:   config/locales/en.yml
+#	modified:   config/navigation.rb
+#	modified:   config/routes.rb
+#	new file:   config/routes.rb~
+#	modified:   db/migrate/20121114105652_drop_tasks..old
+#	modified:   db/migrate/20121114111535_create_courses.rb
+#	modified:   db/migrate/20121114112454_create_students.rb
+#	modified:   db/migrate/20121114120523_create_tasks.rb
+#	modified:   db/migrate/20121114190359_create_grades.rb
+#	new file:   db/migrate/20121115051715_create_teams.rb
+#	new file:   db/migrate/20121115231020_create_evals.rb
+#	modified:   db/schema.rb
+#	modified:   db/seeds.rb
+#	modified:   doc/README_FOR_APP
+#	modified:   features/AddCourse.feature
+#	modified:   lib/assets/.gitkeep
+#	modified:   lib/tasks/.gitkeep
+#	modified:   log/.gitkeep
+#	modified:   public/404.html
+#	modified:   public/422.html
+#	modified:   public/500.html
+#	modified:   public/favicon.ico
+#	modified:   public/robots.txt
+#	modified:   script/rails
+#	new file:   spec/models/courses_spec.rb
+#	new file:   spec/test_spec.rb
+#	new file:   spec/test_spec.rb~
+#	modified:   test/fixtures/.gitkeep
+#	modified:   test/fixtures/categories.yml
+#	modified:   test/fixtures/courses.yml
+#	new file:   test/fixtures/evals.yml
+#	modified:   test/fixtures/grades.yml
+#	modified:   test/fixtures/students.yml
+#	modified:   test/fixtures/tasks.yml
+#	new file:   test/fixtures/teams.yml
+#	modified:   test/functional/.gitkeep
+#	modified:   test/functional/categories_controller_test.rb
+#	modified:   test/functional/courses_controller_test.rb
+#	new file:   test/functional/evals_controller_test.rb
+#	modified:   test/functional/grades_controller_test.rb
+#	modified:   test/functional/home_controller_test.rb
+#	modified:   test/functional/students_controller_test.rb
+#	modified:   test/functional/tasks_controller_test.rb
+#	new file:   test/functional/teams_controller_test.rb
+#	modified:   test/integration/.gitkeep
+#	modified:   test/performance/browsing_test.rb
+#	modified:   test/test_helper.rb
+#	modified:   test/unit/.gitkeep
+#	modified:   test/unit/category_test.rb
+#	modified:   test/unit/course_test.rb
+#	new file:   test/unit/eval_test.rb
+#	modified:   test/unit/grade_test.rb
+#	modified:   test/unit/helpers/categories_helper_test.rb
+#	modified:   test/unit/helpers/courses_helper_test.rb
+#	new file:   test/unit/helpers/evals_helper_test.rb
+#	modified:   test/unit/helpers/grades_helper_test.rb
+#	modified:   test/unit/helpers/home_helper_test.rb
+#	modified:   test/unit/helpers/students_helper_test.rb
+#	modified:   test/unit/helpers/tasks_helper_test.rb
+#	new file:   test/unit/helpers/teams_helper_test.rb
+#	modified:   test/unit/student_test.rb
+#	modified:   test/unit/task_test.rb
+#	new file:   test/unit/team_test.rb
+#	modified:   vendor/assets/javascripts/.gitkeep
+#	modified:   vendor/assets/stylesheets/.gitkeep
+#	modified:   vendor/plugins/.gitkeep
+#
+
