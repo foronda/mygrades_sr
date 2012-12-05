@@ -13,7 +13,7 @@ module StudentsHelper
 			Task.find_all_by_id_and_category_id(grade.task_id, 1).each do |homework|
 					@h_total += homework.total
 					@h_earned += grade.earned
-					
+					hLegend << generate_legend(homework, grade)
 					# Stores values into a hash
 					# Keys = homework name
 					# Values = grade percentage
@@ -29,8 +29,8 @@ module StudentsHelper
 			# Sort hash alphabetically
 			hHash.keys.sort
 			
-			# Generate graph if homework exists and create image link
-			data += generate_lower_modal_div(generate_graph(hHash, hLegend))
+			# Generate google chart if homework exists and create image link
+			data += generate_lower_modal_div(generate_chart(hHash, hLegend))
 			data += "Total #{calc_percentage(@h_earned, @h_total)}% (#{@h_earned}/#{@h_total})</td>"
 		else
 			data +="</td>"
@@ -136,7 +136,7 @@ module StudentsHelper
 		return "#{homework.name} - #{calc_percentage(grade.earned, homework.total)}% (#{grade.earned}/#{homework.total})"
 	end
 	
-	def generate_graph(hash, legend)
+	def generate_chart(hash, legend)
 		return	Gchart.bar(:size => '400x200',
 											 :bar_colors => '76A4FB',
 											 :background => 'EEEEEE',
