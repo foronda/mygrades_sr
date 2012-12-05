@@ -1,0 +1,35 @@
+<table>
+	<th>Grades</th>
+  <tr>
+    <th>Course</th>
+    <th>Task</th>
+    <th>Student</th>
+    <th>Earned</th>
+		<th>Total</th>
+		<th>Grade</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @grades.each do |grade| %>
+  <tr>
+    <td><%= Course.find(grade.course_id).name %></td>
+    <td><%= Task.find(grade.task_id).name %></td>
+    <td><%= Student.find(grade.student_id).username %></td>
+    <td><%= grade.earned %></td>
+		<td><%= Task.find(grade.task_id).total %></td>
+		<td><%= (grade.earned.to_f/(Task.find(grade.task_id).total.to_f))*100 %>%</td>
+    <td><%= link_to 'Show', grade %></td>
+    <td><%= link_to 'Destroy', grade, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<h2>Upload Grades for this assignment</h2>
+<%= form_tag({:action => :upload_grade}, :multipart => true) do %>
+  <%= file_field_tag 'grade_file' %>
+  <%= submit_tag "Upload" %>
+<% end %>

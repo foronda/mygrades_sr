@@ -10,4 +10,14 @@ Scenario: add category
    And I fill in "Name" with "EE467"
    And I fill in "Semester" with "Fall 2012"
    When I press "Create"
+<<<<<<< HEAD
    Then I should see "Course was successfully created"
+=======
+   Then I should see "Course was successfully created"
+   When I follow "Edit"
+   And I fill in "Name" with "EE260"
+   When I press "Update Course"
+   Then I should see "Course was successfully updated"
+   When I follow "Back"
+   Then I should see "EE260"
+>>>>>>> 175ee1b65cfcf95602954802c35750fdc71bfafc

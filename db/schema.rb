@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(:version => 20121130220040) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "evals", :force => true do |t|
+    t.string   "rating"
+    t.text     "comments"
+    t.integer  "task_id"
+    t.integer  "team_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "evals", ["task_id"], :name => "index_evals_on_task_id"
+  add_index "evals", ["team_id"], :name => "index_evals_on_team_id"
+
   create_table "grades", :force => true do |t|
     t.integer  "course_id"
     t.integer  "task_id"
@@ -71,5 +83,14 @@ ActiveRecord::Schema.define(:version => 20121130220040) do
   end
 
   add_index "tasks", ["course_id"], :name => "index_tasks_on_course_id"
+
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.integer  "course_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "teams", ["course_id"], :name => "index_teams_on_course_id"
 
 end

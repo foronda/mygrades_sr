@@ -1,5 +1,11 @@
 class CreateGrades < ActiveRecord::Migration
   def change
+<<<<<<< HEAD
+=======
+
+     #drop_table :grades
+
+>>>>>>> 175ee1b65cfcf95602954802c35750fdc71bfafc
     create_table :grades do |t|
       t.references :course
       t.references :task

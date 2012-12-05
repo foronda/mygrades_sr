@@ -1,4 +1,12 @@
 MygradesSr::Application.routes.draw do
+<<<<<<< HEAD
+=======
+
+  resources :evals
+
+  resources :teams
+
+>>>>>>> 175ee1b65cfcf95602954802c35750fdc71bfafc
   resources :categories
 
   resources :grades
@@ -9,9 +17,11 @@ MygradesSr::Application.routes.draw do
 
   resources :students
 
-  resources :grades
-
   resources :courses
+
+  post 'grades/upload_grade'
+
+  post 'students/upload_student'
 
   #get "home/index"
   root :to => "home#index"

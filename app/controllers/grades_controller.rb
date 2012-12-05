@@ -40,17 +40,8 @@ class GradesController < ApplicationController
   # POST /grades
   # POST /grades.json
   def create
-    @grade = Grade.new(params[:grade])
-
-    respond_to do |format|
-      if @grade.save
-        format.html { redirect_to @grade, notice: 'Grade was successfully created.' }
-        format.json { render json: @grade, status: :created, location: @grade }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @grade.errors, status: :unprocessable_entity }
-      end
-    end
+    @course = Course.find(params[:course_id])
+    #@grade = Grade.new(params[:grade])
   end
 
   # PUT /grades/1
@@ -79,5 +70,43 @@ class GradesController < ApplicationController
       format.html { redirect_to grades_url }
       format.json { head :no_content }
     end
+  end
+
+  def upload_grade
+    @grade = Grade.all
+    stu = Array.new
+    val = Array.new
+    table = Array.new
+    file = params[:grade_file]
+    fname = file.original_filename
+    fname = fname.split('.')
+    file.read.split.each do |part|
+      table << part
+    end
+    table.each_with_index do |ta, d|
+      if d%2 == 0
+        stu << ta
+      else
+        val << ta
+      end
+    end
+    @course = Course.all
+    @task = Task.all
+    @student = Student.all
+    #once for each student
+    stu.each_with_index do |sid, dex|
+      @student.each do |s|
+        if s.username == sid
+          @course.each do |c|
+            @task.each do |t|
+              if t.name == fname[0] && t.course_id == s.course_id && s.course_id == c.id
+                Grade.create(:course_id => c.id, :task_id => t.id, :student_id => s.id, :earned => val[dex])
+              end
+            end
+          end
+        end
+      end
+    end
+    redirect_to grades_path
   end
 end
