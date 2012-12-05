@@ -1,69 +1,5 @@
 <h1>Listing students</h1>
 <div class="accordion" id="accordion2">
-<<<<<<< HEAD
-  <div class="accordion-group">
-  <table class="table table-hover">
-    <tr class="success">
-      <th>Courses</th>
-      <th>Username</th>
-      <th>Homework</th>
-      <th>Lab Total </th>
-      <th>Midterm Total </th>
-      <th>Course Total </th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  <% @students.each do |student| %>
-    <tr class="success">
-      <td><%= Course.find(student.course).name %></td>
-      <td><%= student.username %></td>
-      <%= calc_homeworks(student.id) %>
-      <%= calc_labs(student.id) %>
-      <%= calc_midterms(student.id) %>
-      <%= calc_course(student.id) %>
-      <td><%= link_to 'Student Progress', student %></td>
-      <td><%= link_to 'Edit Student', edit_student_path(student) %></td>
-      <td><%= link_to 'Delete Student', student, confirm: 'Are you sure?', method: :delete %></td>
-    </tr>
-  <% end %>
-  </table>
-||||||| merged common ancestors
-  <div class="accordion-group">
-	<table class="table table-hover">
-		<tr class="success">
-			<th>Course</th>
-			<th>Username</th>
-			<th>			
-				<div>
-					<a data-toggle="modal" data-target="#homework">
-						Homework
-					</a>
-				</div>
-			</th>
-			<th>Lab Total </th>
-			<th>Midterm Total </th>
-			<th>Course Total </th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-	<% @students.each do |student| %>
-		<tr class="success">
-			<td><%= Course.find(student.course).name %></td>
-			<td><%= student.username %></td>
-			<%= calc_homeworks(student.id) %>
-			<%= session[:h_earned] %>
-			<%= calc_labs(student.id) %>
-			<%= calc_midterms(student.id) %>
-			<%= calc_course(student.id) %>
-			<td><%= link_to 'Show', student %></td>
-			<td><%= link_to 'Edit', edit_student_path(student) %></td>
-			<td><%= link_to 'Destroy', student, confirm: 'Are you sure?', method: :delete %></td>
-		</tr>
-	<% end %>
-	</table>
-=======
   <div class="accordion-group">
 	<table class="table table-hover">
 		<tr class="success">
@@ -91,13 +27,12 @@
 		</tr>
 	<% end %>
 	</table>
->>>>>>> Added Guardfile to automate test.
 <br />
-    </div>
-  </div>
+		</div>
+	</div>
 <button class="btn btn-primary"><%= link_to 'New Student', new_student_path %></button>
 
-<h2>Or Upload Student list</h2>
+<h2>Upload Student list</h2>
 <%= form_tag({:action => :upload_student}, :multipart => true) do %>
   <%= file_field_tag 'student_file' %>
   <%= submit_tag "Upload" %>

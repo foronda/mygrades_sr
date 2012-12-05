@@ -16,12 +16,12 @@
 		<%= f.collection_select :course_id, Course.all, :id, :name, :prompt => "Select a Course" %>
   </div>
   
+  <% if false %>
   <div class="field">
-	  <%= f.label :Team %>
-		<%= f.collection_select :team_id, Team.all, :id, :name, :prompt => "Select a Team" %>
+	 <%= f.label :Team %>
+	   <%= f.collection_select :team_id, Team.all, :id, :name, :prompt => "Select a Team" %>
   </div>
-  
-  
+  <% end %>
   
   <div class="field">
     <%= f.label :username %><br />
