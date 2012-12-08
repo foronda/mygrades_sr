@@ -16,7 +16,7 @@ gem 'simple-navigation'
 group :development, :test do
   gem 'sqlite3'
   gem 'guard-rspec'
-  gem 'wdm'
+  #gem 'wdm'
   gem 'cucumber'
   gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'
