@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-=======
-
-<p>
-  <b>Team:</b>
-  <%= Team.find(@student.team).name %>
-</p>
->>>>>>> 175ee1b65cfcf95602954802c35750fdc71bfafc
-
 <h1><%=@course.name%> Progress (<%=@student.username%>)</h1>
 <div class="accordion" id="accordion2">
   <div class="accordion-group">
@@ -14,6 +5,7 @@
 		<tr class="success">
 			<th>Course</th>
 			<th>Username</th>
+			<th>Team</th>
 			<th>			
 				<div>
 					<a data-toggle="modal" data-target="#homework">
@@ -34,6 +26,7 @@
 		<tr class="success">
 			<td><%= @course.name %></td>
 			<td><%= @student.username %></td>
+			<td><%= @team.name %> </td>
 			<%= calc_homeworks(@student.id) %>
 			<%= calc_labs(@student.id) %>
 			<%= calc_midterms(@student.id) %>
