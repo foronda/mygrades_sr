@@ -1,5 +1,5 @@
 <table>
-	<h1>Editing grade</h1>
+	<h1>Listing Grades</h1>
   <tr>
     <th>Course</th>
     <th>Task</th>
@@ -21,6 +21,7 @@
 		<td><%= Task.find(grade.task_id).total %></td>
 		<td><%= (grade.earned.to_f/(Task.find(grade.task_id).total.to_f))*100 %>%</td>
     <td><%= link_to 'Show', grade %></td>
+    <td><%= link_to 'Edit', edit_grade_path(grade)%></td>
     <td><%= link_to 'Destroy', grade, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>

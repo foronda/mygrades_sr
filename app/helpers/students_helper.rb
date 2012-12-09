@@ -18,7 +18,7 @@ module StudentsHelper
                 hHash[homework.name] = grade.earned.percent_of(homework.total)
             end
         end
-
+        #concat hHash
         if(!hHash.empty?)
             # Generates total field data
             hHash["Total"] = calc_percentage(@h_earned, @h_total)
@@ -60,7 +60,7 @@ module StudentsHelper
                     lHash[lab.name] = grade.earned.percent_of(lab.total)
             end
         end
-
+        #concat lHash
         if(!lHash.empty?)
             # Generates total field data
             lHash["Total"] = calc_percentage(@h_earned, @h_total)
@@ -88,7 +88,7 @@ module StudentsHelper
       data = generate_upper_modal_div("midterm")
       Grade.find_all_by_student_id(student_id).each do |grade|
         Task.find_all_by_id_and_category_id(grade.task_id, 3).each do |midterm|
-              @m_total += lab.total
+              @m_total += midterm.total
               @m_earned += grade.earned
 
               mLegend << generate_legend(midterm, grade)
@@ -98,10 +98,10 @@ module StudentsHelper
               mHash[midterm.name] = grade.earned.percent_of(midterm.total)
           end
       end
-
+      #concat mHash
       if(!mHash.empty?)
           # Generates total field data
-          mHash["Total"] = calc_percentage(@m_earned, @m_total)
+          mHash["Total"] = @m_earned.percent_of(@m_total)
           mLegend << "Midterm Total - #{@m_earned.percent_of(@m_total)}% (#{@m_earned}/#{@m_total})"
           
           # Sort hash alphabetically
