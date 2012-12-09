@@ -1,4 +1,6 @@
 require 'spec_helper'
+require 'test/unit'
+require 'mocha/setup'
 
 describe "Students page" do
 
