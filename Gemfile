@@ -6,6 +6,9 @@ gem "googlecharts", :require => "gchart"
 # TabsOnRails Gem Dependency
 gem 'tabs_on_rails'
 
+# Gemfile for Rails >= 3, Sinatra, or Merb
+gem 'will_paginate', '~> 3.0.0'
+
 # Simple Navigation Plugin
 gem 'simple-navigation'
 

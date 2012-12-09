@@ -2,7 +2,7 @@ class GradesController < ApplicationController
   # GET /grades
   # GET /grades.json
   def index
-    @grades = Grade.all
+    @grades = Grade.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
