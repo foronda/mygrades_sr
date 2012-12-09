@@ -22,6 +22,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem "rspec-rails"
+  gem "mocha", :require => false
 end
 
 group :production do
@@ -39,14 +40,12 @@ end
 
 group :test do
   gem 'capybara', '1.1.2'
-  gem 'rb-fchange', '0.0.5'
-  gem 'rb-notifu', '0.0.4'
+  gem 'rb-fchange', '0.0.5', :require => false
+  gem 'rb-notifu', '0.0.4', :require => false
   #gem 'win32console', '1.3.0'
   gem 'cucumber-rails'
   #gem 'rb-fchange', '0.0.5'
   #gem 'rb-notifu', '0.0.4'
-  #gem 'win32console', '1.3.0'
-  gem 'cucumber-rails'
 end
 
 gem 'jquery-rails'
