@@ -36,8 +36,8 @@ module StudentsHelper
         data.html_safe
 
         # Store variables into session
-        #session[:hearned] = @h_earned
-        #session[:htotal] = @h_total
+        session[:hearned] = @h_earned
+        session[:htotal] = @h_total
     end
 
     def calc_labs(student_id)
