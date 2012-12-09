@@ -1,26 +1,7 @@
 require 'spec_helper.rb'
 
 describe StudentsController do
- #  before :each do
-	# students = [{:username => 'foronda', :course_id => Course.find_by_name("EE 467").id, :team_id => Team.find_by_name("Sneaky Redondos").id},
- #            {:username => 'rzukeran', :course_id => Course.find_by_name("EE 467").id, :team_id => Team.find_by_name("Sneaky Redondos").id},
- #            {:username => 'bigtymler', :course_id => Course.find_by_name("EE 467").id, :team_id => Team.find_by_name("Hamburger").id},
- #            {:username => 'flyingv', :course_id => Course.find_by_name("EE 467").id, :team_id => Team.find_by_name("Hamburger").id},
- #            {:username => 'geopro', :course_id => Course.find_by_name("EE 467").id, :team_id => Team.find_by_name("Freshman FTW").id},
- #            {:username => 'bigdang', :course_id => Course.find_by_name("EE 467").id, :team_id => Team.find_by_name("Freshman FTW").id},]
- #  end
-  # describe "courses" do
-  #   it "should have a size of 1" do
-  #     @course = Course.all
-  #     @course.size.should eql 1
-  #   end
-  # end
-   		
-
-	# describe get_homework_earned do
-	# 	it 'should belong to a course'
-	# end
-
+ 
   def mock_student(stubs={})
     @mock_student ||=mock_model(Student,stubs).as_null_object
   end
@@ -57,11 +38,4 @@ describe StudentsController do
       response.should redirect_to students_url
     end
   end
-
-
-    # it "assigns @students" do
-    #   student = Student.new
-    #   response.should render_template("new")
-    #   #assigns(:students).should eq([student])
-    # end	
 end 
