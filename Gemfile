@@ -22,7 +22,10 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem "rspec-rails"
-  gem "mocha", :require => false
+end
+
+group :development do
+    gem "mocha", :require => false
 end
 
 group :production do
