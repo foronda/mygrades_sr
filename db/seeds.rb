@@ -50,3 +50,18 @@ students = [{:username => 'foronda', :course_id => Course.find_by_name("EE 467")
 students.each do |student|
   Student.create!(student)
 end
+
+# Creates tasks for a course
+tasks =[{:name => "Hw1", :course_id => Course.find_by_name("EE 467").id, :category_id => Category.find_by_name("Homeworks").id, :total => 20, :due_date => "2012-09-15 23:59"}, 
+		{:name => "Hw2", :course_id => Course.find_by_name("EE 467").id, :category_id => Category.find_by_name("Homeworks").id, :total => 20, :due_date => "2012-09-30 23:59"},
+		{:name => "Hw3", :course_id => Course.find_by_name("EE 467").id, :category_id => Category.find_by_name("Homeworks").id, :total => 20, :due_date => "2012-10-15 23:59"},
+		{:name => "Lab1", :course_id => Course.find_by_name("EE 467").id, :category_id => Category.find_by_name("Labs").id, :total => 20, :due_date => "2012-09-01 23:59"},
+		{:name => "Lab2", :course_id => Course.find_by_name("EE 467").id, :category_id => Category.find_by_name("Labs").id, :total => 20, :due_date => "2012-09-30 23:59"},
+		{:name => "Midterm1", :course_id => Course.find_by_name("EE 467").id, :category_id => Category.find_by_name("Midterms").id, :total => 100, :due_date => "2012-10-31 12:45"},
+		{:name => "Midterm2", :course_id => Course.find_by_name("EE 467").id, :category_id => Category.find_by_name("Midterms").id, :total => 100, :due_date => "2012-11-16 12:30"},
+		{:name => "Final", :course_id => Course.find_by_name("EE 467").id, :category_id => Category.find_by_name("Final").id, :total => 200, :due_date => "2012-12-10 12:30"},]
+
+# Inserts tasks into database
+tasks.each do |task|
+	Task.create!(task)
+end
