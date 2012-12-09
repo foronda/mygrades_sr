@@ -29,7 +29,7 @@ group :development, :test do
 end
 
 group :development do
-    gem "mocha", :require => false
+    #gem "mocha", :require => false
 end
 
 group :production do
