@@ -7,7 +7,7 @@ class CreateStudents < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :students, :course_id
-     add_index :students, :team_id
+    add_index :students, :course_id		# Creates a has many relationship from course -> students
+    add_index :students, :team_id		# Adds a has many relationship from team -> students
   end
 end
