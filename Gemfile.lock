@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    ZenTest (4.8.3)
     actionmailer (3.2.9)
       actionpack (= 3.2.9)
       mail (~> 2.4.4)
@@ -202,6 +203,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  ZenTest
   bootstrap-sass (~> 2.1.1.0)
   capybara (= 1.1.2)
   coffee-rails (~> 3.2.2)
