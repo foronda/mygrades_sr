@@ -5,6 +5,7 @@
 		<tr class="success">
 			<th>Courses</th>
 			<th>Username</th>
+			<th>Team</th>
 			<th>Homework</th>
 			<th>Lab Total </th>
 			<th>Midterm Total </th>
@@ -17,6 +18,7 @@
 		<tr class="success">
 			<td><%= Course.find(student.course).name %></td>
 			<td><%= student.username %></td>
+			<td><%= Team.find(student.team_id).name %></td>
 			<%= calc_homeworks(student.id) %>
 			<%= calc_labs(student.id) %>
 			<%= calc_midterms(student.id) %>
@@ -27,10 +29,9 @@
 		</tr>
 	<% end %>
 	</table>
-<br />
-		</div>
 	</div>
-<button class="btn btn-primary"><%= link_to 'New Student', new_student_path %></button>
+</div>
+<button class="btn btn-mini"><%= link_to 'New Student', new_student_path %></button>
 
 <h2>Upload Student list</h2>
 <%= form_tag({:action => :upload_student}, :multipart => true) do %>
