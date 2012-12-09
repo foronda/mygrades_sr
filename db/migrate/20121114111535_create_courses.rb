@@ -7,5 +7,11 @@ class CreateCourses < ActiveRecord::Migration
 
       t.timestamps
     end
+	
+		#Populate Database with Different Courses for Dev Database
+		Course.create :name => "EE467", :semester => "Fall 2012"
+		Course.create :name => "EE260", :semester => "Fall 20111"
+		Course.create :name => "EE205", :semester => "Spring 2012"
+		Course.create :name => "EE160", :semester => "Spring 2011"
   end
 end
