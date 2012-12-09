@@ -139,8 +139,8 @@ module StudentsHelper
         return ((earned.to_f/total.to_f)*100).round
     end
 
-    def generate_legend(homework, grade)
-        return "#{homework.name} - #{calc_percentage(grade.earned, homework.total)}% (#{grade.earned}/#{homework.total})"
+    def generate_legend(task, grade)
+        return "#{task.name} - #{calc_percentage(grade.earned, task.total)}% (#{task.earned}/#{homework.total})"
     end
 
     def generate_chart(hash, legend)
