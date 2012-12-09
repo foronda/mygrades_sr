@@ -2,7 +2,7 @@ class CreateStudents < ActiveRecord::Migration
   def change
     create_table :students do |t|
       t.references :course
-       t.references :team
+      t.references :team
       t.string :username
 
       t.timestamps

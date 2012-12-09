@@ -7,7 +7,6 @@ module StudentsHelper
 
 		# Calls helper function for generating modal popup id's
 		data = generate_upper_modal_div("homework")
-
 		Grade.find_all_by_student_id(student_id).each do |grade|
 			Task.find_all_by_id_and_category_id(grade.task_id, 1).each do |homework|
 				@h_total += homework.total
@@ -136,15 +135,15 @@ module StudentsHelper
 
 	def generate_chart(hash, legend)
 		return	Gchart.bar(:size => '400x200',
-											 :bar_colors => '76A4FB',
-											 :background => 'EEEEEE',
-											 :data => hash.values, 
-											 :axis_with_labels => ['x', 'y'],
-											 :axis_labels => [hash.keys],
-											 :legend => legend,	
-											 :bar_width_and_spacing => '40,30',
-											 :bg => {:color => 'FFFFFF', :type => 'solid'}, 
-											 :encoding => 'text')
+						   :bar_colors => '76A4FB',
+						   :background => 'EEEEEE',
+	   					   :data => hash.values, 
+		   				   :axis_with_labels => ['x', 'y'],
+						   :axis_labels => [hash.keys],
+						   :legend => legend,	
+						   :bar_width_and_spacing => '40,30',
+						   :bg => {:color => 'FFFFFF', :type => 'solid'}, 
+						   :encoding => 'text')
 	end
 
 	def generate_upper_modal_div(name)
