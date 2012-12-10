@@ -2,23 +2,10 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
 	
-	helper_method :homework_weight
-	before_filter :get_homework_earned
-	
-	def get_homework_earned
-		@homework_earned = session[:h_earned]
-	end
-	
-	def homework_weight
-		@h_weight = Category.find_by_id(1).weight
-	end
+    before_filter :get_homework_earned
   
-	def index
-    @students = Student.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @students }
-    end
+  def get_homework_earned
+    @homework_earned = session[:h_earned]
   end
 	
   # GET /students/1
@@ -149,21 +136,29 @@ class StudentsController < ApplicationController
     #end
     redirect_to students_path
   end
-	
-	before_filter :load_hearned
-  after_filter :save_hearned
 
-  private
-    def load_hearned
-      @hearned = session[:hearned] || 0
+  helper_method :homework_weight
+  helper_method :lab_weight
+  helper_method :midterm_weight
+  
+  def homework_weight
+    @h_weight = Category.find_by_id(1).weight
+  end
+  
+  def lab_weight
+    @lab_weight = Category.find_by_id(2).weight
+  end
+
+  def midterm_weight
+    @midterm_weight = Category.find_by_id(3).weight
+  end
+  
+  def index
+    @students = Student.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @students }
     end
-
-    def save_hearned
-      session[:hearned] = @hearned
-    end
-
-	
-	before_filter :load_hearned
-  after_filter :save_hearned
+  end
 
 end

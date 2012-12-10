@@ -21,23 +21,19 @@ module StudentsHelper
         #concat hHash
         if(!hHash.empty?)
             # Generates total field data
-            hHash["Total"] = calc_percentage(@h_earned, @h_total)
-            hLegend << "Homework Total - #{calc_percentage(@h_earned, @h_total)}% (#{@h_earned}/#{@h_total})"
+            hHash["Total"] = @h_earned.percent_of(@h_total)
+            hLegend << "Homework Total - #{@h_earned.percent_of(@h_total)}% (#{@h_earned}/#{@h_total})"
             
             # Sort hash alphabetically
             hHash.keys.sort
             
             # Generate google chart if homework exists and create image link
             data += generate_lower_modal_div(generate_chart(hHash, hLegend))
-            data += "#{calc_percentage(@h_earned, @h_total)}% (#{@h_earned}/#{@h_total})</td>"
+            data += "#{@h_earned.percent_of(@h_total)}% (#{@h_earned}/#{@h_total})</td>"
         else
             data +="</td>"
         end
         data.html_safe
-
-        # Store variables into session
-        session[:hearned] = @h_earned
-        session[:htotal] = @h_total
     end
 
     def calc_labs(student_id)
@@ -63,7 +59,7 @@ module StudentsHelper
         #concat lHash
         if(!lHash.empty?)
             # Generates total field data
-            lHash["Total"] = calc_percentage(@h_earned, @h_total)
+            lHash["Total"] = @h_earned.percent_of(@h_total)
             lLegend << "Lab Total - #{@l_earned.percent_of(@l_total)}% (#{@l_earned}/#{@l_total})"
             
             # Sort hash alphabetically
@@ -117,30 +113,56 @@ module StudentsHelper
     end
 
     def calc_course(student_id)
-        @c_total = 0
-        @c_earned = 0
-        Grade.find_all_by_student_id(student_id).each do |grade|
-            Task.find_all_by_id(grade.task_id).each do |course|
-                    @c_total += course.total
-                    @c_earned += grade.earned
-            end
-        end
+        @c_total = homework_total(student_id) + lab_total(student_id) + midterm_total(student_id)
 
         if(@c_total != 0)
-            raw("<td> #{@c_total}<td>" ) 
+            raw("<td> #{@c_total}%<td>" ) 
         else
             raw("<td>N/A</td>")
         end
         #raw("#{session[:hearned]}")
     end
-
-    # Helper functions
-    def calc_percentage(earned, total)
-        return ((earned.to_f/total.to_f)*100).round
+    
+    # Functions for calculating category totals
+    def homework_total(student_id)
+      @h_total = 0
+      @h_earned = 0
+      Grade.find_all_by_student_id(student_id).each do |grade|
+          Task.find_all_by_id_and_category_id(grade.task_id, 1).each do |homework|
+              @h_total += homework.total
+              @h_earned += grade.earned
+          end
+      end
+      return @h_earned.percent_of(@h_total)*homework_weight
     end
 
+    def lab_total(student_id)
+      @l_total = 0
+      @l_total = 0
+      Grade.find_all_by_student_id(student_id).each do |grade|
+        Task.find_all_by_id_and_category_id(grade.task_id, 2).each do |lab|
+            @l_total += lab.total
+            @l_earned += grade.earned
+        end
+      end
+      return @l_earned.percent_of(@l_total)*lab_weight
+    end
+    
+    def midterm_total(student_id)
+      @m_total
+      @m_total
+      Grade.find_all_by_student_id(student_id).each do |grade|
+          Task.find_all_by_id_and_category_id(grade.task_id, 2).each do |midterm|
+              @m_total += midterm.total
+              @m_earned += grade.earned
+          end
+      end
+      return @m_earned.percent_of(@m_total)*midterm_weight
+    end
+
+    # Helper functions
     def generate_legend(homework, grade)
-        return "#{homework.name} - #{calc_percentage(grade.earned, homework.total)}% (#{grade.earned}/#{homework.total})"
+        return "#{homework.name} - #{grade.earned.percent_of(homework.total)}% (#{grade.earned}/#{homework.total})"
     end
 
     def generate_chart(hash, legend)
