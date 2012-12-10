@@ -111,12 +111,20 @@ module StudentsHelper
       end
       data.html_safe
     end
-
+    def calc_final(student_id)
+      data = "<td>"
+      Grade.find_all_by_student_id(student_id).each do |grade|
+        Task.find_all_by_id_and_category_id(grade.task_id, 4).each do |final|
+              data += "#{grade.earned.percent_of(final.total)}% (#{grade.earned}/#{final.total})</td>"
+          end
+      end
+      data.html_safe
+    end
     def calc_course(student_id)
-        @c_total = homework_total(student_id) + lab_total(student_id) + midterm_total(student_id)
+        @c_total = homework_total(student_id) + lab_total(student_id) + midterm_total(student_id) + final_total(student_id)
 
         if(@c_total != 0)
-            raw("<td> #{@c_total}%<td>" ) 
+            raw("<td> #{@c_total.round(2)}%<td>" ) 
         else
             raw("<td>N/A</td>")
         end
@@ -133,12 +141,12 @@ module StudentsHelper
               @h_earned += grade.earned
           end
       end
-      return @h_earned.percent_of(@h_total)*homework_weight
+      return (@h_earned.percent_of(@h_total))*homework_weight
     end
 
     def lab_total(student_id)
       @l_total = 0
-      @l_total = 0
+      @l_earned = 0
       Grade.find_all_by_student_id(student_id).each do |grade|
         Task.find_all_by_id_and_category_id(grade.task_id, 2).each do |lab|
             @l_total += lab.total
@@ -158,6 +166,14 @@ module StudentsHelper
           end
       end
       return @m_earned.percent_of(@m_total)*midterm_weight
+    end
+
+    def final_total(student_id)
+      Grade.find_all_by_student_id(student_id).each do |grade|
+        Task.find_all_by_id_and_category_id(grade.task_id, 4).each do |final|
+              return grade.earned.percent_of(final.total)*final_weight
+          end
+      end
     end
 
     # Helper functions

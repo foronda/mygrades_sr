@@ -25,7 +25,9 @@
 					<a data-toggle="modal" data-target="#midterm"> 
 						Midterm
 					</a>
+				</div>
 			</th>
+			<th>Final</th>
 			<th>Course</th>
 		</tr>
 		<tr class="success">
@@ -35,6 +37,7 @@
 			<%= calc_homeworks(@student.id) %>
 			<%= calc_labs(@student.id) %>
 			<%= calc_midterms(@student.id) %>
+			<%= calc_final(@student.id) %>
 			<%= calc_course(@student.id) %>
 		</tr>
 	</table>

@@ -140,6 +140,7 @@ class StudentsController < ApplicationController
   helper_method :homework_weight
   helper_method :lab_weight
   helper_method :midterm_weight
+  helper_method :final_weight
   
   def homework_weight
     @h_weight = Category.find_by_id(1).weight
@@ -151,6 +152,10 @@ class StudentsController < ApplicationController
 
   def midterm_weight
     @midterm_weight = Category.find_by_id(3).weight
+  end
+
+  def final_weight
+    @final_weight = Category.find_by_id(4).weight
   end
   
   def index
