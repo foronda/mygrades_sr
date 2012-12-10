@@ -20,7 +20,7 @@ end
 # Creates categories data
 categories = [{:name => "Homeworks", :weight => 0.2}, 
 			  {:name => "Labs", :weight => 0.3}, 
-			  {:name => "Midterms", :weight => 0.2}, 
+			  {:name => "Midterms", :weight => 0.3}, 
 			  {:name => "Final", :weight => 0.2},]	
 
 # Inserts categories into database
