@@ -1,8 +1,5 @@
 <h1>Listing students</h1>
-<div class="accordion" id="accordion2">
-  <div class="accordion-group">
-	<table class="table table-hover">
-		<tr class="success">
+	<%= render 'layouts/tabletop' %>
 			<th>Courses</th>
 			<th>Username</th>
 			<th>Team</th>
@@ -16,7 +13,7 @@
 			<th></th>
 		</tr>
 	<% @students.each do |student| %>
-		<tr class="success">
+		<tr class="info">
 			<td><%= Course.find(student.course).name %></td>
 			<td><%= student.username %></td>
 			<td><%= Team.find(student.team_id).name %></td>
@@ -30,9 +27,7 @@
 			<td><%= link_to 'Delete Student', student, confirm: 'Are you sure?', method: :delete %></td>
 		</tr>
 	<% end %>
-	</table>
-	</div>
-</div>
+	<%= render 'layouts/tablebot'%>
 <button class="btn btn-mini"><%= link_to 'New Student', new_student_path %></button>
 
 <h2>Upload Student list</h2>

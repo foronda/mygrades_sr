@@ -1,7 +1,5 @@
 <h1>Listing tasks</h1>
-
-<table>
-  <tr>
+<%= render 'layouts/tabletop' %>
     <th>Course</th>
     <th>Category</th>
     <th>Name</th>
@@ -12,7 +10,7 @@
   </tr>
 
 <% @tasks.each do |task| %>
-  <tr>
+  <tr class="info">
     <td><%= Course.find(task.course_id).name%></td>
     <td><%= Category.find(task.category_id).name %></td>
     <td><%= task.name %></td>
@@ -23,8 +21,5 @@
     <td><%= link_to 'Delete', task, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
-</table>
-
-<br />
-
+<%= render 'layouts/tablebot' %>
 <%= link_to 'New Task', new_task_path %>

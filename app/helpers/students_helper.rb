@@ -121,12 +121,14 @@ module StudentsHelper
       data.html_safe
     end
     def calc_course(student_id)
-        @c_total = homework_total(student_id) + lab_total(student_id) + midterm_total(student_id) + final_total(student_id)
+        @c_total = 0
+        @c_total += homework_total(student_id) + lab_total(student_id) + midterm_total(student_id) + final_total(student_id)
+        #@c_total += final_total(student_id) unless final_total(student_id) == 0
 
         if(@c_total != 0)
             raw("<td> #{@c_total.round(2)}%<td>" ) 
         else
-            raw("<td>N/A</td>")
+            raw("<td></td>")
         end
         #raw("#{session[:hearned]}")
     end
@@ -141,7 +143,7 @@ module StudentsHelper
               @h_earned += grade.earned
           end
       end
-      return (@h_earned.percent_of(@h_total))*homework_weight
+      if @h_total != 0 then return (@h_earned.percent_of(@h_total))*homework_weight else return 0 end
     end
 
     def lab_total(student_id)
@@ -153,7 +155,7 @@ module StudentsHelper
             @l_earned += grade.earned
         end
       end
-      return @l_earned.percent_of(@l_total)*lab_weight
+      if @l_total != 0 then return @l_earned.percent_of(@l_total)*lab_weight else return 0 end
     end
     
     def midterm_total(student_id)
@@ -165,13 +167,13 @@ module StudentsHelper
               @m_earned += grade.earned
           end
       end
-      return @m_earned.percent_of(@m_total)*midterm_weight
+       if @m_total != 0 then return @m_earned.percent_of(@m_total)*midterm_weight else return 0 end
     end
 
     def final_total(student_id)
       Grade.find_all_by_student_id(student_id).each do |grade|
         Task.find_all_by_id_and_category_id(grade.task_id, 4).each do |final|
-              return grade.earned.percent_of(final.total)*final_weight
+              if final.total != 0 then return grade.earned.percent_of(final.total)*final_weight else return 0 end
           end
       end
     end

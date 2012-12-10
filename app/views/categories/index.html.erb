@@ -1,7 +1,6 @@
 <h1>Listing categories</h1>
 
-<table>
-  <tr>
+  <%= render 'layouts/tabletop' %>
     <th>Name</th>
     <th>Weight</th>
     <th></th>
@@ -10,7 +9,7 @@
   </tr>
 
 <% @categories.each do |category| %>
-  <tr>
+  <tr class="info">
     <td><%= category.name %></td>
     <td><%= category.weight.to_f*100 %>%</td>
     <td><%= link_to 'Show', category %></td>
@@ -18,8 +17,5 @@
     <td><%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Category', new_category_path %>
+  <%= render 'layouts/tablebot'%>
+<button class="btn btn-mini"><%= link_to 'New Category', new_category_path %></button>

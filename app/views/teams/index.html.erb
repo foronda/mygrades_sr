@@ -1,7 +1,5 @@
 <h1>Listing teams</h1>
-
-<table>
-  <tr>
+  <%= render 'layouts/tabletop' %>
     <th>Name</th>
     <th>Course</th>
     <th></th>
@@ -10,7 +8,7 @@
   </tr>
 
 <% @teams.each do |team| %>
-  <tr>
+  <tr class="info">
     <td><%= team.name %></td>
     <td><%= Course.find(team.course).name %></td>
     <td><%= link_to 'Show', team %></td>
@@ -18,8 +16,6 @@
     <td><%= link_to 'Destroy', team, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
-</table>
+<%= render 'layouts/tablebot'%>
 
-<br />
-
-<%= link_to 'New Team', new_team_path %>
+<button class="btn btn-mini"><%= link_to 'New Team', new_team_path %></button>
