@@ -1,34 +1,42 @@
-<table>
-	<h1>Listing Grades</h1>
-  <tr>
-    <th>Course</th>
-    <th>Task</th>
-    <th>Student</th>
-    <th>Earned</th>
-		<th>Total</th>
-		<th>Grade</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @grades.each do |grade| %>
-  <tr>
-    <td><%= Course.find(grade.course_id).name %></td>
-    <td><%= Task.find(grade.task_id).name %></td>
-    <td><%= Student.find(grade.student_id).username %></td>
-    <td><%= grade.earned %></td>
-		<td><%= Task.find(grade.task_id).total %></td>
-		<td><%= (grade.earned.to_f/(Task.find(grade.task_id).total.to_f))*100 %>%</td>
-    <td><%= link_to 'Show', grade %></td>
-    <td><%= link_to 'Edit', edit_grade_path(grade)%></td>
-    <td><%= link_to 'Destroy', grade, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-<%= will_paginate @grades %>
-<br />
-
+<h1>Listing Grades</h1>
+  <form class="filter_grades", method="get">
+    <% Category.all.each do |a| %>
+    <%= check_box_tag("category", a.name)%>
+    <%= a.name %>
+    <% end %>
+    <input class="btn btn-mini" type="submit" value="Filter" />
+  </form>
+    <div class="accordion" id="accordion2">
+      <div class="accordion-group">
+      <table class="table table-hover">
+      <tr class="info">
+        <th><%= link_to 'Course', grades_path(:sort => 'course') %></th>
+        <th><%= link_to 'Task', grades_path(:sort => 'task') %></th>
+        <th><%= link_to 'Student', grades_path(:sort => 'student') %></th>
+        <th>Earned</th>
+        <th>Total</th>
+        <th>Grade</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @grades.each do |grade| %>
+      <tr class="info">
+        <td><%= Course.find(grade.course_id).name %></td>
+        <td><%= Task.find(grade.task_id).name %></td>
+        <td><%= Student.find(grade.student_id).username %></td>
+        <td><%= grade.earned %></td>
+        <td><%= Task.find(grade.task_id).total %></td>
+        <td><%= grade.earned.percent_of(Task.find(grade.task_id).total) %>%</td>
+        <td><%= link_to 'Show', grade %></td>
+        <td><%= link_to 'Edit', edit_grade_path(grade)%></td>
+        <td><%= link_to 'Destroy', grade, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+    <%= will_paginate @grades%>
+    </div>
+  </div>
 <h2>Upload Grades for this assignment</h2>
 <%= form_tag({:action => :upload_grade}, :multipart => true) do %>
   <%= file_field_tag 'grade_file' %>

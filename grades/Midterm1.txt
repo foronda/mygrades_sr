@@ -1,6 +1,6 @@
-foronda 20
-rzukeran 20
-bigtymler 20
-flyingv 20
-geopro 20
-bigdang 20
+foronda 45
+rzukeran 55
+bigtymler 50
+flyingv 90
+geopro 100
+bigdang 100
